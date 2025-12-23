@@ -15,6 +15,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/libs", "src/utils", "src/icons"]
+  "include": ["src/index.ts", "src/libs", "src/utils", "src/icons"]
 }
 

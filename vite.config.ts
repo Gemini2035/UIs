@@ -24,19 +24,19 @@ export default defineConfig(({ command }) => {
   return {
     plugins: [
       react({
-      babel: {
-        plugins: enableReactCompiler ? [['babel-plugin-react-compiler']] : [],
-      },
-    }),
+        babel: {
+          plugins: enableReactCompiler ? [['babel-plugin-react-compiler']] : [],
+        },
+      }),
 
       // ✅ 只在 dev / storybook 启用
       !isLibBuild && tailwindcss(),
 
       dts({
-      entryRoot: './src/libs',
-      tsconfigPath: './tsconfig.build.json',
-      insertTypesEntry: true,
-      rollupTypes: true,
+        entryRoot: './src',
+        tsconfigPath: './tsconfig.build.json',
+        insertTypesEntry: true,
+        rollupTypes: true,
         exclude: ['**/*.css', '**/style-entry.ts', '**/*.stories.tsx', '**/*.test.ts', '**/*.test.tsx'],
       }),
     ].filter(Boolean),
@@ -50,10 +50,10 @@ export default defineConfig(({ command }) => {
 
     build: {
       lib: {
-      entry: {
-        index: path.resolve(dirname, './src/libs/index.ts')
-      },
-      name: 'gemini-uis',
+        entry: {
+          index: path.resolve(dirname, './src/index.ts')
+        },
+        name: 'gemini-uis',
         formats: ['es'],
         fileName: () => 'index.js',
       },
@@ -79,25 +79,25 @@ export default defineConfig(({ command }) => {
 
     test: {
       projects: [
-      {
-        extends: true,
-        plugins: [
-          storybookTest({
-            configDir: path.join(dirname, '.storybook'),
-          }),
-        ],
-        test: {
-          name: 'storybook',
-          browser: {
-            enabled: true,
-            headless: true,
-            provider: playwright({}),
-            instances: [{ browser: 'chromium' }],
+        {
+          extends: true,
+          plugins: [
+            storybookTest({
+              configDir: path.join(dirname, '.storybook'),
+            }),
+          ],
+          test: {
+            name: 'storybook',
+            browser: {
+              enabled: true,
+              headless: true,
+              provider: playwright({}),
+              instances: [{ browser: 'chromium' }],
+            },
+            setupFiles: ['.storybook/vitest.setup.ts'],
           },
-          setupFiles: ['.storybook/vitest.setup.ts'],
         },
-      },
-    ],
+      ],
     },
   };
 });
