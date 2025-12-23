@@ -16,10 +16,10 @@ const config: StorybookConfig = {
   ],
   framework: "@storybook/react-vite",
   async viteFinal(config) {
-    config.base = '/uis/';
     config.plugins = config.plugins || [];
     config.plugins.push(tsconfigPaths());
     // config.plugins.push(tailwindcss());
+    config.base = '/uis/';
     return config;
   },
 };
