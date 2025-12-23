@@ -1,9 +1,13 @@
 {
   "name": "gemini-uis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
-  "files": ["dist"],
-  "sideEffects": ["*.css"],
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "tsc -b && vite build",
@@ -11,6 +15,9 @@
     "preview": "vite preview",
     "build-storybook": "storybook build -o storybook-static",
     "prepare": "husky install"
+  },
+  "np": {
+    "publishBranch": "production"
   },
   "dependencies": {
     "react": "^19.2.0",
