@@ -1,0 +1,7 @@
+# 不发布源码
+src/
+.storybook/
+tests/
+.vscode/
+*.config.js
+*.md
