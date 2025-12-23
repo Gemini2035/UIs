@@ -39,3 +39,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: storybook-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
