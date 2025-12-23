@@ -19,7 +19,7 @@ const config: StorybookConfig = {
     config.plugins = config.plugins || [];
     config.plugins.push(tsconfigPaths());
     // config.plugins.push(tailwindcss());
-    config.base = '/uis/';
+    config.base = '/UIs/';
     return config;
   },
 };
