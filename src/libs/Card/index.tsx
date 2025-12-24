@@ -33,4 +33,4 @@ const Card = forwardRef<CardRef, CardProps>(
 
 export default Card
 
-export type { CardProps, CardRef } from './types'
+export type { CardProps, CardRef, CardShadow, CardBorder } from './types'
