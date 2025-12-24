@@ -1,6 +1,6 @@
 {
   "name": "gemini-uis",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -26,9 +26,6 @@
     "preview": "vite preview",
     "build-storybook": "storybook build -o storybook-static",
     "prepare": "husky install"
-  },
-  "np": {
-    "publishBranch": "production"
   },
   "dependencies": {
     "react": "^19.2.0",
