@@ -4,7 +4,7 @@ import { getButtonStyles } from './styles'
 import { cn } from '@/utils'
 import { LoadingIcon } from '@/icons'
 
-export const Button = forwardRef<ButtonRef, ButtonProps>(
+const Button = forwardRef<ButtonRef, ButtonProps>(
   (
     {
       type = 'primary',
