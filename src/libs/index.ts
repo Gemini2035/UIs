@@ -3,4 +3,4 @@ export { default as Card, type CardProps, type CardRef, type CardShadow, type Ca
 export { default as Collapse, type CollapseProps, type CollapseRef, type CollapsePanelProps, type CollapsePanelRef, type CollapseSize, type CollapseVariant } from './Collapse'
 export { default as Divider, type DividerProps, type DividerRef, type DividerOrientation, type DividerThickness } from './Divider'
 export { default as Drawer, type DrawerProps, type DrawerRef, type DrawerPlacement, type DrawerSize } from './Drawer'
-export { default as EmptyState, type EmptyStateProps, type EmptyStateRef, type EmptyStateSize, type EmptyStateVariant, type EmptyStateIconType } from './EmptyState'
+export { default as EmptyState, EmptyStateIcon, type EmptyStateProps, type EmptyStateRef, type EmptyStateSize, type EmptyStateVariant, type EmptyStateIconType } from './EmptyState'
