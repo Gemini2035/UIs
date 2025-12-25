@@ -51,7 +51,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         className={cn(buttonStyles)}
         {...props}
       >
-        {loading && <LoadingIcon className="animate-spin w-4 h-4 mr-2" />}
+        {loading && <LoadingIcon className="animate-spin" />}
         {children}
       </button>
     )

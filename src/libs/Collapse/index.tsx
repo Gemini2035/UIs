@@ -1,38 +1,46 @@
-import { forwardRef, useState, useCallback, useMemo, cloneElement, isValidElement } from 'react'
-import type { CollapseProps, CollapseRef, CollapsePanelProps } from './types'
-import { getCollapseStyles } from './styles'
-import { cn } from '@/utils'
+import {
+  forwardRef,
+  useState,
+  useCallback,
+  useMemo,
+  cloneElement,
+  isValidElement,
+} from "react";
+import type { CollapseProps, CollapseRef, CollapsePanelProps } from "./types";
+import { getCollapseStyles } from "./styles";
+import { cn } from "@/utils";
+import { ArrowIcon } from "@/icons";
 
 /**
  * 默认箭头图标组件
  */
-const DefaultArrowIcon = ({ isActive, disabled }: { isActive: boolean; disabled?: boolean }) => (
-  <svg
+const DefaultArrowIcon = ({
+  isActive,
+  disabled,
+}: {
+  isActive: boolean;
+  disabled?: boolean;
+}) => (
+  <ArrowIcon
     className={cn(
-      'shrink-0 size-4 transition-transform duration-200 ease-in-out',
-      isActive ? 'rotate-180' : 'rotate-0',
-      disabled ? 'opacity-50' : ''
+      "shrink-0 size-4 transition-transform duration-200 ease-in-out",
+      isActive ? "rotate-180" : "rotate-0",
+      disabled ? "opacity-50" : ""
     )}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-  </svg>
-)
+  />
+);
 
 const CollapseCore = forwardRef<CollapseRef, CollapseProps>(
   (
     {
       activeKey,
       defaultActiveKey,
-      collapsible = 'header',
+      collapsible = "header",
       accordion = false,
       bordered = false,
       ghost = false,
-      size = 'md',
-      variant = 'default',
+      size = "md",
+      variant = "default",
       className,
       children,
       onChange,
@@ -44,103 +52,121 @@ const CollapseCore = forwardRef<CollapseRef, CollapseProps>(
   ) => {
     // 内部状态管理
     const [internalActiveKey, setInternalActiveKey] = useState<string[]>(() => {
-      const initialKey = activeKey || defaultActiveKey
-      if (Array.isArray(initialKey)) return initialKey
-      return initialKey ? [initialKey] : []
-    })
+      const initialKey = activeKey || defaultActiveKey;
+      if (Array.isArray(initialKey)) return initialKey;
+      return initialKey ? [initialKey] : [];
+    });
 
     // 当前激活的面板
     const currentActiveKey = useMemo(() => {
-      return activeKey !== undefined ? 
-        (Array.isArray(activeKey) ? activeKey : [activeKey]) : 
-        internalActiveKey
-    }, [activeKey, internalActiveKey])
+      return activeKey !== undefined
+        ? Array.isArray(activeKey)
+          ? activeKey
+          : [activeKey]
+        : internalActiveKey;
+    }, [activeKey, internalActiveKey]);
 
     // 处理面板切换
-    const handlePanelToggle = useCallback((key: string) => {
-      if (collapsible === 'disabled') return
+    const handlePanelToggle = useCallback(
+      (key: string) => {
+        if (collapsible === "disabled") return;
 
-      let newActiveKey: string[]
-      
-      if (accordion) {
-        // 手风琴模式：同时只能展开一个面板
-        newActiveKey = currentActiveKey.includes(key) ? [] : [key]
-      } else {
-        // 普通模式：可以同时展开多个面板
-        if (currentActiveKey.includes(key)) {
-          newActiveKey = currentActiveKey.filter(k => k !== key)
+        let newActiveKey: string[];
+
+        if (accordion) {
+          // 手风琴模式：同时只能展开一个面板
+          newActiveKey = currentActiveKey.includes(key) ? [] : [key];
         } else {
-          newActiveKey = [...currentActiveKey, key]
+          // 普通模式：可以同时展开多个面板
+          if (currentActiveKey.includes(key)) {
+            newActiveKey = currentActiveKey.filter((k) => k !== key);
+          } else {
+            newActiveKey = [...currentActiveKey, key];
+          }
         }
-      }
 
-      // 更新状态
-      if (activeKey === undefined) {
-        setInternalActiveKey(newActiveKey)
-      }
+        // 更新状态
+        if (activeKey === undefined) {
+          setInternalActiveKey(newActiveKey);
+        }
 
-      // 触发回调
-      onChange?.(accordion ? newActiveKey[0] || '' : newActiveKey)
-      
-      if (newActiveKey.includes(key)) {
-        onExpand?.(key)
-      } else {
-        onCollapse?.(key)
-      }
-    }, [activeKey, currentActiveKey, accordion, collapsible, onChange, onExpand, onCollapse])
+        // 触发回调
+        onChange?.(accordion ? newActiveKey[0] || "" : newActiveKey);
+
+        if (newActiveKey.includes(key)) {
+          onExpand?.(key);
+        } else {
+          onCollapse?.(key);
+        }
+      },
+      [
+        activeKey,
+        currentActiveKey,
+        accordion,
+        collapsible,
+        onChange,
+        onExpand,
+        onCollapse,
+      ]
+    );
 
     // 获取样式类名
-    const collapseStyles = getCollapseStyles(size, variant, bordered, ghost, className)
+    const collapseStyles = getCollapseStyles(
+      size,
+      variant,
+      bordered,
+      ghost,
+      className
+    );
 
     // 渲染子组件
     const renderChildren = useMemo(() => {
-      if (!children) return null
+      if (!children) return null;
 
-      return Array.isArray(children) ? children.map((child, index) => {
-        if (!isValidElement<CollapsePanelProps>(child)) return child
+      return Array.isArray(children)
+        ? children.map((child, index) => {
+            if (!isValidElement<CollapsePanelProps>(child)) return child;
 
-        const { ...childProps } = child.props
-        const panelKey = child.key || String(index)
-        const isActive = currentActiveKey.includes(panelKey)
+            const { ...childProps } = child.props;
+            const panelKey = child.key || String(index);
+            const isActive = currentActiveKey.includes(panelKey);
 
-        return cloneElement(child, {
-          ...childProps,
-          isActive,
-          onToggle: () => handlePanelToggle(panelKey),
-          collapsible,
-        })
-      }      ) : (
-        isValidElement<CollapsePanelProps>(children) ? 
-          cloneElement(children, {
+            return cloneElement(child, {
+              ...childProps,
+              isActive,
+              onToggle: () => handlePanelToggle(panelKey),
+              collapsible,
+            });
+          })
+        : isValidElement<CollapsePanelProps>(children)
+        ? cloneElement(children, {
             ...children.props,
-            isActive: currentActiveKey.includes(children.key || 'filter'),
-            onToggle: () => handlePanelToggle(children.key || 'filter'),
+            isActive: currentActiveKey.includes(children.key || "filter"),
+            onToggle: () => handlePanelToggle(children.key || "filter"),
             collapsible,
-          }) : 
-          children
-      )
-    }, [children, currentActiveKey, handlePanelToggle, collapsible])
+          })
+        : children;
+    }, [children, currentActiveKey, handlePanelToggle, collapsible]);
 
     return (
-      <div
-        ref={ref}
-        className={cn(collapseStyles)}
-        {...props}
-      >
+      <div ref={ref} className={cn(collapseStyles)} {...props}>
         {renderChildren}
       </div>
-    )
+    );
   }
-)
+);
 
 /**
  * Collapse.Panel 子组件
  */
-const CollapsePanel = forwardRef<HTMLDivElement, CollapsePanelProps & {
-  isActive?: boolean
-  onToggle?: () => void
-  collapsible?: 'header' | 'icon' | 'disabled'
-}>(
+const CollapsePanel = forwardRef<
+  HTMLDivElement,
+  CollapsePanelProps & {
+    isActive?: boolean;
+    onToggle?: () => void;
+    collapsible?: "header" | "icon" | "disabled";
+  }
+>(
   (
     {
       key,
@@ -156,70 +182,67 @@ const CollapsePanel = forwardRef<HTMLDivElement, CollapsePanelProps & {
       onHeaderClick,
       isActive = false,
       onToggle,
-      collapsible = 'header',
+      collapsible = "header",
       ...props
     },
     ref
   ) => {
     // 处理头部点击
     const handleHeaderClick = () => {
-      if (disabled || collapsible === 'disabled') return
-      
-      onHeaderClick?.(key)
-      onToggle?.()
-    }
+      if (disabled || collapsible === "disabled") return;
+
+      onHeaderClick?.(key);
+      onToggle?.();
+    };
 
     // 处理箭头点击
     const handleArrowClick = (e: React.MouseEvent) => {
-      if (collapsible === 'header') return
-      
-      e.stopPropagation()
+      if (collapsible === "header") return;
+
+      e.stopPropagation();
       if (!disabled) {
-        onToggle?.()
+        onToggle?.();
       }
-    }
+    };
 
     // 渲染箭头图标
     const renderArrow = () => {
-      if (!showArrow) return null
+      if (!showArrow) return null;
 
       if (arrow) {
         return (
-          <span 
+          <span
             className={cn(
-              'shrink-0 transition-transform duration-200 ease-in-out',
-              isActive ? 'rotate-180' : 'rotate-0',
-              disabled ? 'opacity-50' : '',
-              collapsible === 'icon' ? 'cursor-pointer' : ''
+              "shrink-0 transition-transform duration-200 ease-in-out",
+              isActive ? "rotate-180" : "rotate-0",
+              disabled ? "opacity-50" : "",
+              collapsible === "icon" ? "cursor-pointer" : ""
             )}
             onClick={handleArrowClick}
           >
             {arrow}
           </span>
-        )
+        );
       }
 
-      return (
-        <DefaultArrowIcon isActive={isActive} disabled={disabled} />
-      )
-    }
+      return <DefaultArrowIcon isActive={isActive} disabled={disabled} />;
+    };
 
     return (
       <div
         ref={ref}
-        className={cn(
-          'border-b border-gray-200 last:border-b-0',
-          className
-        )}
+        className={cn("border-b border-gray-200 last:border-b-0", className)}
         {...props}
       >
         {/* 面板头部容器 */}
         <div
           className={cn(
-            'flex items-center justify-between w-full text-left font-medium transition-colors duration-200',
-            'px-4 py-3',
-            disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            "flex items-center justify-between w-full text-left font-medium transition-colors duration-200",
+            "px-4 py-3",
+            disabled
+              ? "opacity-50 cursor-not-allowed"
+              : "cursor-pointer hover:bg-gray-50",
+            "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset",
             headerContainerClassName
           )}
           onClick={handleHeaderClick}
@@ -229,7 +252,7 @@ const CollapsePanel = forwardRef<HTMLDivElement, CollapsePanelProps & {
           aria-disabled={disabled}
         >
           {/* 面板头部内容 */}
-          <div className={cn('flex-1 pr-2', headerContentClassName)}>
+          <div className={cn("flex-1 pr-2", headerContentClassName)}>
             {header}
           </div>
           {renderArrow()}
@@ -238,31 +261,33 @@ const CollapsePanel = forwardRef<HTMLDivElement, CollapsePanelProps & {
         {/* 面板内容 */}
         <div
           className={cn(
-            'overflow-hidden transition-all duration-300 ease-in-out',
-            isActive ? 'max-h-none opacity-100' : 'max-h-0 opacity-0'
+            "overflow-hidden transition-all duration-300 ease-in-out",
+            isActive ? "max-h-none opacity-100" : "max-h-0 opacity-0"
           )}
         >
-          <div
-            className={cn(
-              'px-4 pb-4 text-gray-700',
-              contentClassName
-            )}
-          >
+          <div className={cn("px-4 pb-4 text-gray-700", contentClassName)}>
             {children}
           </div>
         </div>
       </div>
-    )
+    );
   }
-)
+);
 
-CollapsePanel.displayName = 'CollapsePanel'
+CollapsePanel.displayName = "CollapsePanel";
 
 // 将 Panel 组件附加到 Collapse 上，使其可以通过 Collapse.Panel 访问
 // 使用 Object.assign 确保类型正确，这样 IDE 可以直接定位到 CollapsePanel
 const Collapse = Object.assign(CollapseCore, {
-  Panel: CollapsePanel
-}) as typeof CollapseCore & { Panel: typeof CollapsePanel }
+  Panel: CollapsePanel,
+}) as typeof CollapseCore & { Panel: typeof CollapsePanel };
 
-export default Collapse
-export type { CollapseProps, CollapseRef, CollapsePanelProps, CollapsePanelRef, CollapseSize, CollapseVariant } from './types'
+export default Collapse;
+export type {
+  CollapseProps,
+  CollapseRef,
+  CollapsePanelProps,
+  CollapsePanelRef,
+  CollapseSize,
+  CollapseVariant,
+} from "./types";

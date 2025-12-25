@@ -2,13 +2,14 @@ import type { FC } from 'react';
 import type { IconProps } from './types';
 
 const LoadingIcon: FC<IconProps> = ({ 
-  size = 16, 
+  width = 16,
+  height = 16,
   className = 'animate-spin', 
   ...props 
 }) => (
   <svg
-    width={size}
-    height={size}
+    width={width}
+    height={height}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"

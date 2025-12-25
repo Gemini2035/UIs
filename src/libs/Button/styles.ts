@@ -48,7 +48,7 @@ export const getButtonStyles = (
   loading: boolean = false,
   customClassName?: string
 ): string => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium text-center transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'
+  const baseStyles = 'inline-flex gap-1 items-center justify-center font-medium text-center transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'
   const variantStyles = getVariantStyles(variant)
   const sizeStyles = getSizeStyles(size)
   const roundedStyles = getRoundedStyles(rounded)
