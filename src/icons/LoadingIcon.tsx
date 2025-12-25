@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { IconProps } from './types';
 
-export const LoadingIcon: FC<IconProps> = ({ 
+const LoadingIcon: FC<IconProps> = ({ 
   size = 16, 
   className = 'animate-spin', 
   ...props 
