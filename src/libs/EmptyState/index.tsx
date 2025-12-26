@@ -68,8 +68,6 @@ export const EmptyState = forwardRef<EmptyStateRef, EmptyStateProps>(
   }
 );
 
-EmptyState.displayName = "EmptyState";
-
 export default EmptyState;
 
 export { EmptyStateIcon };
