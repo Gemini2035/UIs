@@ -303,7 +303,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
         {/* 滑动容器 */}
         <div
           ref={trackRef}
-          className={getSliderTrackStyles(paddingLeft, gap)}
+          className={getSliderTrackStyles()}
           style={trackStyle}
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
@@ -313,7 +313,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
           {items.map((item, index) => (
             <div
               key={index}
-              className={cn(getSliderItemStyles(actualItemsPerPage), itemContainerClassName)}
+              className={cn(getSliderItemStyles(), itemContainerClassName)}
               style={itemStyle}
               onClick={handleClick}
               draggable={false}

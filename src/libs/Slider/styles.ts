@@ -16,9 +16,6 @@ export const getSliderStyles = (
  * 获取滑动容器的样式类名
  */
 export const getSliderTrackStyles = (
-  paddingLeft: number,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _gap: number = 0,
   className?: string
 ) => {
   // 暂时不使用 gap 参数，但保留接口兼容性
@@ -32,7 +29,6 @@ export const getSliderTrackStyles = (
  * 获取单个item的样式类名
  */
 export const getSliderItemStyles = (
-  itemsPerPage: number,
   className?: string
 ) => {
   return cn(
