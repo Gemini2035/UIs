@@ -9,3 +9,4 @@ export { default as Pagination, type PaginationProps, type PaginationSize, type 
 export { default as Slider, type SliderProps, type SliderRef, type NavigationDirection, type NavigationVariant, type IndicatorVariant } from './Slider'
 export { default as Tab, type TabProps, type TabItem } from './Tab'
 export { default as Tag, type TagProps, type TagColor, type TagSize } from './Tag'
+export { default as Timeline, type TimelineProps, type TimelineRef, type TimelineMode, type TimelineSize, type TimelineColor, type TimelineStatus, type TimelineItemProps, type TimelineItemRef } from './Timeline'
