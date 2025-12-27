@@ -23,7 +23,7 @@ const DefaultArrowIcon = ({
 }) => (
   <ArrowIcon
     className={cn(
-      "shrink-0 size-4 transition-transform duration-200 ease-in-out",
+      "shrink-0 transition-transform duration-200 ease-in-out",
       isActive ? "rotate-180" : "rotate-0",
       disabled ? "opacity-50" : ""
     )}

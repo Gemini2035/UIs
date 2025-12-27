@@ -5,9 +5,18 @@ const ArrowIcon: FC<IconProps> = ({
   viewBox = "0 0 24 24",
   fill = "none",
   stroke = "currentColor",
+  width = 12,
+  height = 12,
   ...props
 }) => (
-  <svg fill={fill} stroke={stroke} viewBox={viewBox} {...props}>
+  <svg
+    fill={fill}
+    stroke={stroke}
+    viewBox={viewBox}
+    width={width}
+    height={height}
+    {...props}
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
