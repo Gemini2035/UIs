@@ -8,3 +8,4 @@ export { default as Loading, type LoadingProps, type LoadingSize, type LoadingVa
 export { default as Pagination, type PaginationProps, type PaginationSize, type PaginationAlign, type PaginationItemProps, type PaginationJumpProps, type PaginationSizeChangerProps, type PaginationQuickJumperProps } from './Pagination'
 export { default as Slider, type SliderProps, type SliderRef, type NavigationDirection, type NavigationVariant, type IndicatorVariant } from './Slider'
 export { default as Tab, type TabProps, type TabItem } from './Tab'
+export { default as Tag, type TagProps, type TagColor, type TagSize } from './Tag'

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState } from "react";
+import { useState, type FC } from "react";
 import { Tab } from "@/libs";
 
 const items = [
@@ -117,7 +117,7 @@ export const DisabledTab: Story = {
 // =======================
 export const Controlled: Story = {
   render: () => {
-    const ControlledTab = () => {
+    const ControlledTab: FC = () => {
       const [activeKey, setActiveKey] = useState("tab1");
 
       return (
