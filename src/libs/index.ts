@@ -4,3 +4,4 @@ export { default as Collapse, type CollapseProps, type CollapseRef, type Collaps
 export { default as Divider, type DividerProps, type DividerRef, type DividerOrientation, type DividerThickness } from './Divider'
 export { default as Drawer, type DrawerProps, type DrawerRef, type DrawerPlacement, type DrawerSize } from './Drawer'
 export { default as EmptyState, EmptyStateIcon, type EmptyStateProps, type EmptyStateRef, type EmptyStateSize, type EmptyStateVariant, type EmptyStateIconType } from './EmptyState'
+export { default as Loading, type LoadingProps, type LoadingSize, type LoadingVariant } from './Loading'
