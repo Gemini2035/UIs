@@ -7,3 +7,4 @@ export { default as EmptyState, EmptyStateIcon, type EmptyStateProps, type Empty
 export { default as Loading, type LoadingProps, type LoadingSize, type LoadingVariant } from './Loading'
 export { default as Pagination, type PaginationProps, type PaginationSize, type PaginationAlign, type PaginationItemProps, type PaginationJumpProps, type PaginationSizeChangerProps, type PaginationQuickJumperProps } from './Pagination'
 export { default as Slider, type SliderProps, type SliderRef, type NavigationDirection, type NavigationVariant, type IndicatorVariant } from './Slider'
+export { default as Tab, type TabProps, type TabItem } from './Tab'
