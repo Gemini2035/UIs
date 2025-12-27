@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState, type FC } from "react";
 import { cn } from "@/utils";
 import type { ToastInstance } from "./types";
