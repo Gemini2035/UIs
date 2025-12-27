@@ -61,7 +61,9 @@ const TimelineCore = forwardRef<TimelineRef, TimelineProps>(
 
 const Timeline = Object.assign(TimelineCore, {
   Item: TimelineItem,
-});
+}) as typeof TimelineCore & {
+  Item: typeof TimelineItem;
+};
 
 export default Timeline;
 

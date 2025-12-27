@@ -4,7 +4,7 @@ import { getTimelineItemStyles, getTimelineDotStyles, getTimelineContentStyles, 
 import { cn } from '@/utils'
 
 /**
- * TimelineItem 组件的扩展属性
+ * TimelineItem 组件的扩展属性（内部使用）
  */
 interface ExtendedTimelineItemProps extends TimelineItemProps {
   mode?: TimelineMode
@@ -12,7 +12,7 @@ interface ExtendedTimelineItemProps extends TimelineItemProps {
   isLast?: boolean
 }
 
-export const TimelineItem = forwardRef<TimelineItemRef, ExtendedTimelineItemProps>(
+const TimelineItem = forwardRef<TimelineItemRef, ExtendedTimelineItemProps>(
   (
     {
       label,
@@ -121,5 +121,7 @@ export const TimelineItem = forwardRef<TimelineItemRef, ExtendedTimelineItemProp
     )
   }
 )
+
+TimelineItem.displayName = 'TimelineItem'
 
 export default TimelineItem
