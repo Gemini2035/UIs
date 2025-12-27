@@ -6,3 +6,4 @@ export { default as Drawer, type DrawerProps, type DrawerRef, type DrawerPlaceme
 export { default as EmptyState, EmptyStateIcon, type EmptyStateProps, type EmptyStateRef, type EmptyStateSize, type EmptyStateVariant, type EmptyStateIconType } from './EmptyState'
 export { default as Loading, type LoadingProps, type LoadingSize, type LoadingVariant } from './Loading'
 export { default as Pagination, type PaginationProps, type PaginationSize, type PaginationAlign, type PaginationItemProps, type PaginationJumpProps, type PaginationSizeChangerProps, type PaginationQuickJumperProps } from './Pagination'
+export { default as Slider, type SliderProps, type SliderRef, type NavigationDirection, type NavigationVariant, type IndicatorVariant } from './Slider'
