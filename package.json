@@ -24,7 +24,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build-storybook": "storybook build -o storybook-static",
+    "build-storybook": "pnpm build && storybook build -o storybook-static",
     "prepare": "husky install"
   },
   "dependencies": {
