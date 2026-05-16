@@ -131,7 +131,7 @@ export const Sizes: Story = {
       const [current, setCurrent] = useState(1);
 
       return (
-        <div className="flex flex-col gap-6">
+        <div className="gemini:flex gemini:flex-col gemini:gap-6">
           <Pagination
             size="small"
             current={current}
@@ -168,7 +168,7 @@ export const Align: Story = {
       const [current, setCurrent] = useState(1);
 
       return (
-        <div className="w-full flex flex-col gap-6">
+        <div className="gemini:w-full gemini:flex gemini:flex-col gemini:gap-6">
           <Pagination align="left" current={current} total={100} onChange={setCurrent} />
           <Pagination align="center" current={current} total={100} onChange={setCurrent} />
           <Pagination align="right" current={current} total={100} onChange={setCurrent} />

@@ -5,9 +5,9 @@ import type { CollapseSize, CollapseVariant } from './types'
  */
 export const getCollapseSizeStyles = (size: CollapseSize): string => {
   const sizes = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg',
+    sm: 'gemini:text-sm',
+    md: 'gemini:text-base',
+    lg: 'gemini:text-lg',
   }
   return sizes[size] || sizes.md
 }
@@ -17,14 +17,14 @@ export const getCollapseSizeStyles = (size: CollapseSize): string => {
  */
 export const getCollapseVariantStyles = (variant: CollapseVariant, bordered: boolean, ghost: boolean): string => {
   if (ghost) {
-    return 'bg-transparent'
+    return 'gemini:bg-transparent'
   }
   
   if (bordered || variant === 'bordered') {
-    return 'border border-gray-200 rounded-lg overflow-hidden'
+    return 'gemini:border gemini:border-gray-200 gemini:rounded-lg gemini:overflow-hidden'
   }
   
-  return 'bg-white rounded-lg'
+  return 'gemini:bg-white gemini:rounded-lg'
 }
 
 /**
@@ -37,7 +37,7 @@ export const getCollapseStyles = (
   ghost: boolean = false,
   customClassName?: string
 ): string => {
-  const baseStyles = 'w-full'
+  const baseStyles = 'gemini:w-full'
   const sizeStyles = getCollapseSizeStyles(size)
   const variantStyles = getCollapseVariantStyles(variant, bordered, ghost)
   
@@ -57,7 +57,7 @@ export const getCollapseStyles = (
  * 获取 Collapse.Panel 的样式
  */
 export const getPanelStyles = (customClassName?: string): string => {
-  const baseStyles = 'border-b border-gray-200 last:border-b-0'
+  const baseStyles = 'gemini:border-b gemini:border-gray-200 gemini:last:border-b-0'
   
   return [
     baseStyles,
@@ -76,8 +76,8 @@ export const getPanelHeaderStyles = (
   disabled: boolean = false,
   customClassName?: string
 ): string => {
-  const baseStyles = 'flex items-center justify-between w-full px-4 py-3 text-left font-medium transition-colors duration-200 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset'
-  const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed hover:bg-transparent' : ''
+  const baseStyles = 'gemini:flex gemini:items-center gemini:justify-between gemini:w-full gemini:px-4 gemini:py-3 gemini:text-left gemini:font-medium gemini:transition-colors gemini:duration-200 gemini:cursor-pointer gemini:hover:bg-gray-50 gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-blue-500 gemini:focus:ring-inset'
+  const disabledStyles = disabled ? 'gemini:opacity-50 gemini:cursor-not-allowed gemini:hover:bg-transparent' : ''
   
   return [
     baseStyles,
@@ -94,7 +94,7 @@ export const getPanelHeaderStyles = (
  * 获取 Panel 内容的样式
  */
 export const getPanelContentStyles = (customClassName?: string): string => {
-  const baseStyles = 'px-4 pb-4 text-gray-700 overflow-hidden transition-all duration-300 ease-in-out'
+  const baseStyles = 'gemini:px-4 gemini:pb-4 gemini:text-gray-700 gemini:overflow-hidden gemini:transition-all gemini:duration-300 gemini:ease-in-out'
   
   return [
     baseStyles,
@@ -110,9 +110,9 @@ export const getPanelContentStyles = (customClassName?: string): string => {
  * 获取箭头图标的样式
  */
 export const getArrowStyles = (isActive: boolean, disabled: boolean = false): string => {
-  const baseStyles = 'flex-shrink-0 w-4 h-4 transition-transform duration-200 ease-in-out'
-  const activeStyles = isActive ? 'rotate-180' : 'rotate-0'
-  const disabledStyles = disabled ? 'opacity-50' : ''
+  const baseStyles = 'gemini:flex-shrink-0 gemini:w-4 gemini:h-4 gemini:transition-transform gemini:duration-200 gemini:ease-in-out'
+  const activeStyles = isActive ? 'gemini:rotate-180' : 'gemini:rotate-0'
+  const disabledStyles = disabled ? 'gemini:opacity-50' : ''
   
   return [
     baseStyles,
@@ -129,8 +129,8 @@ export const getArrowStyles = (isActive: boolean, disabled: boolean = false): st
  * 获取内容容器的样式（用于动画）
  */
 export const getContentContainerStyles = (isActive: boolean): string => {
-  const baseStyles = 'transition-all duration-300 ease-in-out'
-  const activeStyles = isActive ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+  const baseStyles = 'gemini:transition-all gemini:duration-300 gemini:ease-in-out'
+  const activeStyles = isActive ? 'gemini:max-h-screen gemini:opacity-100' : 'gemini:max-h-0 gemini:opacity-0'
   
   return [
     baseStyles,

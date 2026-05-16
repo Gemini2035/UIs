@@ -35,7 +35,7 @@ export const Basic: Story = {
       return (
         <>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className="gemini:px-4 gemini:py-2 gemini:bg-blue-500 gemini:text-white gemini:rounded"
             onClick={() => setOpen(true)}
           >
             打开抽屉
@@ -66,11 +66,11 @@ export const Placements: Story = {
 
       return (
         <>
-          <div className="flex gap-2 mb-4">
+          <div className="gemini:flex gemini:gap-2 gemini:mb-4">
             {(['left', 'right', 'top', 'bottom'] as const).map(p => (
               <button
                 key={p}
-                className="px-3 py-1 border rounded"
+                className="gemini:px-3 gemini:py-1 gemini:border gemini:rounded"
                 onClick={() => {
                   setPlacement(p);
                   setOpen(true);
@@ -105,11 +105,11 @@ export const Sizes: Story = {
 
       return (
         <>
-          <div className="flex gap-2 mb-4">
+          <div className="gemini:flex gemini:gap-2 gemini:mb-4">
             {(['sm', 'md', 'lg', 'full'] as const).map(s => (
               <button
                 key={s}
-                className="px-3 py-1 border rounded"
+                className="gemini:px-3 gemini:py-1 gemini:border gemini:rounded"
                 onClick={() => {
                   setSize(s);
                   setOpen(true);
@@ -144,7 +144,7 @@ export const WithFooter: Story = {
       return (
         <>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className="gemini:px-4 gemini:py-2 gemini:bg-blue-500 gemini:text-white gemini:rounded"
             onClick={() => setOpen(true)}
           >
             打开
@@ -155,14 +155,14 @@ export const WithFooter: Story = {
             title="带底部操作"
             onClose={() => setOpen(false)}
             footer={
-              <div className="flex justify-end gap-2">
+              <div className="gemini:flex gemini:justify-end gemini:gap-2">
                 <button
-                  className="px-3 py-1 border rounded"
+                  className="gemini:px-3 gemini:py-1 gemini:border gemini:rounded"
                   onClick={() => setOpen(false)}
                 >
                   取消
                 </button>
-                <button className="px-3 py-1 bg-blue-500 text-white rounded">
+                <button className="gemini:px-3 gemini:py-1 gemini:bg-blue-500 gemini:text-white gemini:rounded">
                   确定
                 </button>
               </div>
@@ -186,7 +186,7 @@ export const NoMask: Story = {
       return (
         <>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className="gemini:px-4 gemini:py-2 gemini:bg-blue-500 gemini:text-white gemini:rounded"
             onClick={() => setOpen(true)}
           >
             无遮罩
@@ -211,7 +211,7 @@ export const MaskNotClosable: Story = {
       return (
         <>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className="gemini:px-4 gemini:py-2 gemini:bg-blue-500 gemini:text-white gemini:rounded"
             onClick={() => setOpen(true)}
           >
             点击遮罩不关闭
@@ -240,7 +240,7 @@ export const CustomStyle: Story = {
       return (
         <>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className="gemini:px-4 gemini:py-2 gemini:bg-blue-500 gemini:text-white gemini:rounded"
             onClick={() => setOpen(true)}
           >
             自定义样式
@@ -249,11 +249,11 @@ export const CustomStyle: Story = {
           <Drawer
             open={open}
             onClose={() => setOpen(false)}
-            className="rounded-l-xl"
-            headerClassName="bg-gray-100"
-            bodyClassName="bg-white"
-            footerClassName="bg-gray-50"
-            maskClassName="bg-black/40"
+            className="gemini:rounded-l-xl"
+            headerClassName="gemini:bg-gray-100"
+            bodyClassName="gemini:bg-white"
+            footerClassName="gemini:bg-gray-50"
+            maskClassName="gemini:bg-black/40"
           >
             内容
           </Drawer>

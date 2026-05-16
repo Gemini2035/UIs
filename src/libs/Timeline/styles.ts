@@ -9,21 +9,21 @@ export const getTimelineStyles = (
   showLine: boolean = true,
   className?: string
 ): string => {
-  const baseStyles = 'relative'
+  const baseStyles = 'gemini:relative'
 
   const modeStyles = {
-    left: 'pl-6',
-    right: 'pr-6',
-    alternate: 'px-6'
+    left: 'gemini:pl-6',
+    right: 'gemini:pr-6',
+    alternate: 'gemini:px-6'
   }
 
   const sizeStyles = {
-    sm: 'space-y-4',
-    md: 'space-y-6',
-    lg: 'space-y-8'
+    sm: 'gemini:space-y-4',
+    md: 'gemini:space-y-6',
+    lg: 'gemini:space-y-8'
   }
 
-  const lineStyles = showLine ? 'before:absolute before:left-6 before:top-0 before:bottom-0 before:w-0.5 before:bg-gray-300 before:rounded-full' : ''
+  const lineStyles = showLine ? 'gemini:before:absolute gemini:before:left-6 gemini:before:top-0 gemini:before:bottom-0 gemini:before:w-0.5 gemini:before:bg-gray-300 gemini:before:rounded-full' : ''
 
   return `${baseStyles} ${modeStyles[mode]} ${sizeStyles[size]} ${lineStyles} ${className || ''}`
 }
@@ -42,18 +42,18 @@ export const getTimelineItemStyles = (
   _showLine: boolean = true,
   className?: string
 ): string => {
-  const baseStyles = 'relative flex items-start'
+  const baseStyles = 'gemini:relative gemini:flex gemini:items-start'
 
   const modeStyles = {
-    left: 'space-x-4',
-    right: 'flex-row-reverse space-x-reverse space-x-4',
-    alternate: 'space-x-4'
+    left: 'gemini:space-x-4',
+    right: 'gemini:flex-row-reverse gemini:space-x-reverse gemini:space-x-4',
+    alternate: 'gemini:space-x-4'
   }
 
   const sizeStyles = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg'
+    sm: 'gemini:text-sm',
+    md: 'gemini:text-base',
+    lg: 'gemini:text-lg'
   }
 
   return `${baseStyles} ${modeStyles[mode]} ${sizeStyles[size]} ${className || ''}`
@@ -69,15 +69,15 @@ export const getTimelineLineStyles = (
   if (!showLine) return ''
 
   const colorStyles = {
-    blue: 'bg-blue-300',
-    green: 'bg-green-300',
-    red: 'bg-red-300',
-    orange: 'bg-orange-300',
-    purple: 'bg-purple-300',
-    gray: 'bg-gray-300'
+    blue: 'gemini:bg-blue-300',
+    green: 'gemini:bg-green-300',
+    red: 'gemini:bg-red-300',
+    orange: 'gemini:bg-orange-300',
+    purple: 'gemini:bg-purple-300',
+    gray: 'gemini:bg-gray-300'
   }
 
-  return `absolute left-6 top-0 bottom-0 w-0.5 rounded-full ${colorStyles[color]}`
+  return `gemini:absolute gemini:left-6 gemini:top-0 gemini:bottom-0 gemini:w-0.5 gemini:rounded-full ${colorStyles[color]}`
 }
 
 /**
@@ -88,28 +88,28 @@ export const getTimelineDotStyles = (
   color: TimelineColor = 'blue',
   status: TimelineStatus = 'process'
 ): string => {
-  const baseStyles = 'flex-shrink-0 rounded-full flex items-center justify-center shadow-lg'
+  const baseStyles = 'gemini:flex-shrink-0 gemini:rounded-full gemini:flex gemini:items-center gemini:justify-center gemini:shadow-lg'
 
   const sizeStyles = {
-    sm: 'w-6 h-6 text-xs',
-    md: 'w-8 h-8 text-sm',
-    lg: 'w-10 h-10 text-base'
+    sm: 'gemini:w-6 gemini:h-6 gemini:text-xs',
+    md: 'gemini:w-8 gemini:h-8 gemini:text-sm',
+    lg: 'gemini:w-10 gemini:h-10 gemini:text-base'
   }
 
   const statusStyles = {
-    pending: 'bg-gray-100 border-2 border-gray-300',
-    process: 'bg-blue-500 text-white',
-    finish: 'bg-green-500 text-white',
-    error: 'bg-red-500 text-white'
+    pending: 'gemini:bg-gray-100 gemini:border-2 gemini:border-gray-300',
+    process: 'gemini:bg-blue-500 gemini:text-white',
+    finish: 'gemini:bg-green-500 gemini:text-white',
+    error: 'gemini:bg-red-500 gemini:text-white'
   }
 
   const colorStyles = {
-    blue: status === 'process' ? 'bg-blue-500' : status === 'finish' ? 'bg-green-500' : 'bg-gray-500',
-    green: status === 'process' ? 'bg-green-500' : status === 'finish' ? 'bg-green-500' : 'bg-gray-500',
-    red: status === 'process' ? 'bg-red-500' : status === 'finish' ? 'bg-green-500' : 'bg-gray-500',
-    orange: status === 'process' ? 'bg-orange-500' : status === 'finish' ? 'bg-green-500' : 'bg-gray-500',
-    purple: status === 'process' ? 'bg-purple-500' : status === 'finish' ? 'bg-green-500' : 'bg-gray-500',
-    gray: status === 'process' ? 'bg-gray-500' : status === 'finish' ? 'bg-green-500' : 'bg-gray-500'
+    blue: status === 'process' ? 'gemini:bg-blue-500' : status === 'finish' ? 'gemini:bg-green-500' : 'gemini:bg-gray-500',
+    green: status === 'process' ? 'gemini:bg-green-500' : status === 'finish' ? 'gemini:bg-green-500' : 'gemini:bg-gray-500',
+    red: status === 'process' ? 'gemini:bg-red-500' : status === 'finish' ? 'gemini:bg-green-500' : 'gemini:bg-gray-500',
+    orange: status === 'process' ? 'gemini:bg-orange-500' : status === 'finish' ? 'gemini:bg-green-500' : 'gemini:bg-gray-500',
+    purple: status === 'process' ? 'gemini:bg-purple-500' : status === 'finish' ? 'gemini:bg-green-500' : 'gemini:bg-gray-500',
+    gray: status === 'process' ? 'gemini:bg-gray-500' : status === 'finish' ? 'gemini:bg-green-500' : 'gemini:bg-gray-500'
   }
 
   return `${baseStyles} ${sizeStyles[size]} ${statusStyles[status]} ${colorStyles[color]}`
@@ -124,12 +124,12 @@ export const getTimelineContentStyles = (
   size: TimelineSize = 'md',
   className?: string
 ): string => {
-  const baseStyles = 'flex-1 bg-white rounded-lg shadow-sm border border-gray-200'
+  const baseStyles = 'gemini:flex-1 gemini:bg-white gemini:rounded-lg gemini:shadow-sm gemini:border gemini:border-gray-200'
 
   const sizeStyles = {
-    sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8'
+    sm: 'gemini:p-4',
+    md: 'gemini:p-6',
+    lg: 'gemini:p-8'
   }
 
   return `${baseStyles} ${sizeStyles[size]} ${className || ''}`
@@ -143,18 +143,18 @@ export const getTimelineLabelStyles = (
   size: TimelineSize = 'md',
   className?: string
 ): string => {
-  const baseStyles = 'text-gray-600 font-medium'
+  const baseStyles = 'gemini:text-gray-600 gemini:font-medium'
 
   const sizeStyles = {
-    sm: 'text-xs',
-    md: 'text-sm',
-    lg: 'text-base'
+    sm: 'gemini:text-xs',
+    md: 'gemini:text-sm',
+    lg: 'gemini:text-base'
   }
 
   const modeStyles = {
-    left: 'mb-2',
-    right: 'mb-2 text-right',
-    alternate: 'mb-2'
+    left: 'gemini:mb-2',
+    right: 'gemini:mb-2 gemini:text-right',
+    alternate: 'gemini:mb-2'
   }
 
   return `${baseStyles} ${sizeStyles[size]} ${modeStyles[mode]} ${className || ''}`

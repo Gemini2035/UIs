@@ -9,18 +9,18 @@ export function getEmptyStateStyles(
   variant: EmptyStateVariant = 'default',
   className?: string
 ): string {
-  const baseStyles = 'flex flex-col items-center justify-center text-center'
+  const baseStyles = 'gemini:flex gemini:flex-col gemini:items-center gemini:justify-center gemini:text-center'
   
   const sizeStyles = {
-    sm: 'py-8 px-4',
-    md: 'py-12 px-6',
-    lg: 'py-16 px-8'
+    sm: 'gemini:py-8 gemini:px-4',
+    md: 'gemini:py-12 gemini:px-6',
+    lg: 'gemini:py-16 gemini:px-8'
   }
   
   const variantStyles = {
-    default: 'bg-gray-50 rounded-lg',
-    minimal: 'bg-transparent',
-    card: 'bg-white border border-gray-200 rounded-lg shadow-sm'
+    default: 'gemini:bg-gray-50 gemini:rounded-lg',
+    minimal: 'gemini:bg-transparent',
+    card: 'gemini:bg-white gemini:border gemini:border-gray-200 gemini:rounded-lg gemini:shadow-sm'
   }
   
   return cn(
@@ -36,13 +36,13 @@ export function getEmptyStateStyles(
  */
 export function getIconContainerStyles(size: EmptyStateSize = 'md'): string {
   const sizeStyles = {
-    sm: 'w-12 h-12 mb-3',
-    md: 'w-16 h-16 mb-4',
-    lg: 'w-20 h-20 mb-6'
+    sm: 'gemini:w-12 gemini:h-12 gemini:mb-3',
+    md: 'gemini:w-16 gemini:h-16 gemini:mb-4',
+    lg: 'gemini:w-20 gemini:h-20 gemini:mb-6'
   }
   
   return cn(
-    'flex items-center justify-center text-gray-400',
+    'gemini:flex gemini:items-center gemini:justify-center gemini:text-gray-400',
     sizeStyles[size]
   )
 }
@@ -52,13 +52,13 @@ export function getIconContainerStyles(size: EmptyStateSize = 'md'): string {
  */
 export function getTitleStyles(size: EmptyStateSize = 'md'): string {
   const sizeStyles = {
-    sm: 'text-lg font-semibold',
-    md: 'text-xl font-semibold',
-    lg: 'text-2xl font-semibold'
+    sm: 'gemini:text-lg gemini:font-semibold',
+    md: 'gemini:text-xl gemini:font-semibold',
+    lg: 'gemini:text-2xl gemini:font-semibold'
   }
   
   return cn(
-    'text-gray-900 mb-2',
+    'gemini:text-gray-900 gemini:mb-2',
     sizeStyles[size]
   )
 }
@@ -68,13 +68,13 @@ export function getTitleStyles(size: EmptyStateSize = 'md'): string {
  */
 export function getDescriptionStyles(size: EmptyStateSize = 'md'): string {
   const sizeStyles = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg'
+    sm: 'gemini:text-sm',
+    md: 'gemini:text-base',
+    lg: 'gemini:text-lg'
   }
   
   return cn(
-    'text-gray-600 mb-4 max-w-md',
+    'gemini:text-gray-600 gemini:mb-4 gemini:max-w-md',
     sizeStyles[size]
   )
 }
@@ -83,5 +83,5 @@ export function getDescriptionStyles(size: EmptyStateSize = 'md'): string {
  * 获取操作按钮容器的样式类名
  */
 export function getActionStyles(): string {
-  return 'mt-2'
+  return 'gemini:mt-2'
 }

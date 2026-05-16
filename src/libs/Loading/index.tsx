@@ -24,7 +24,7 @@ const Loading: FC<LoadingProps> = ({
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
     
     // 锁定滚动
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'gemini:hidden'
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`
     }
@@ -42,15 +42,15 @@ const Loading: FC<LoadingProps> = ({
     switch (variant) {
       case 'spinner':
         return (
-          <div className="relative">
+          <div className="gemini:relative">
             {/* 外圈 - 扁平化圆环 */}
             <div className={cn(
-              'rounded-full border-4 border-gray-200',
+              'gemini:rounded-full gemini:border-4 gemini:border-gray-200',
               sizeClass
             )} />
             {/* 内圈 - 旋转的蓝色弧线 */}
             <div className={cn(
-              'absolute inset-0 rounded-full border-4 border-transparent border-t-blue-600 animate-spin',
+              'gemini:absolute gemini:inset-0 gemini:rounded-full gemini:border-4 gemini:border-transparent gemini:border-t-blue-600 gemini:animate-spin',
               sizeClass
             )} 
             style={{ animationDuration: '0.8s' }}
@@ -60,17 +60,17 @@ const Loading: FC<LoadingProps> = ({
       
       case 'dots':
         return (
-          <div className="flex items-center gap-2">
+          <div className="gemini:flex gemini:items-center gemini:gap-2">
             <span 
-              className={cn('rounded-full bg-blue-600 animate-bounce', sizeClass)} 
+              className={cn('gemini:rounded-full gemini:bg-blue-600 gemini:animate-bounce', sizeClass)} 
               style={{ animationDelay: '0ms', animationDuration: '1s' }} 
             />
             <span 
-              className={cn('rounded-full bg-blue-600 animate-bounce', sizeClass)} 
+              className={cn('gemini:rounded-full gemini:bg-blue-600 gemini:animate-bounce', sizeClass)} 
               style={{ animationDelay: '150ms', animationDuration: '1s' }} 
             />
             <span 
-              className={cn('rounded-full bg-blue-600 animate-bounce', sizeClass)} 
+              className={cn('gemini:rounded-full gemini:bg-blue-600 gemini:animate-bounce', sizeClass)} 
               style={{ animationDelay: '300ms', animationDuration: '1s' }} 
             />
           </div>
@@ -78,15 +78,15 @@ const Loading: FC<LoadingProps> = ({
       
       case 'pulse':
         return (
-          <div className={cn('rounded-full bg-blue-600 animate-pulse', sizeClass)} />
+          <div className={cn('gemini:rounded-full gemini:bg-blue-600 gemini:animate-pulse', sizeClass)} />
         )
       
       case 'skeleton':
         return (
-          <div className="space-y-3 w-full">
-            <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
-            <div className="h-4 bg-gray-200 rounded animate-pulse w-full" />
-            <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6" />
+          <div className="gemini:space-y-3 gemini:w-full">
+            <div className="gemini:h-4 gemini:bg-gray-200 gemini:rounded gemini:animate-pulse gemini:w-3/4" />
+            <div className="gemini:h-4 gemini:bg-gray-200 gemini:rounded gemini:animate-pulse gemini:w-full" />
+            <div className="gemini:h-4 gemini:bg-gray-200 gemini:rounded gemini:animate-pulse gemini:w-5/6" />
           </div>
         )
       
@@ -97,14 +97,14 @@ const Loading: FC<LoadingProps> = ({
 
   const content = (
     <div className={cn(
-      'flex flex-col items-center justify-center gap-4',
-      fullscreen ? 'min-h-screen' : 'py-8',
+      'gemini:flex gemini:flex-col gemini:items-center gemini:justify-center gemini:gap-4',
+      fullscreen ? 'gemini:min-h-screen' : 'gemini:py-8',
       className
     )}>
       {renderLoader()}
       {showText && text && (
         <p className={cn(
-          'text-gray-700 font-medium',
+          'gemini:text-gray-700 gemini:font-medium',
           getTextSize(size)
         )}>
           {text}
@@ -115,7 +115,7 @@ const Loading: FC<LoadingProps> = ({
 
   if (fullscreen) {
     return (
-      <div className="fixed inset-0 bg-white/70 backdrop-blur-[2px] z-50 flex items-center justify-center transition-all duration-300">
+      <div className="gemini:fixed gemini:inset-0 gemini:bg-white/70 gemini:backdrop-blur-[2px] gemini:z-50 gemini:flex gemini:items-center gemini:justify-center gemini:transition-all gemini:duration-300">
         {content}
       </div>
     )

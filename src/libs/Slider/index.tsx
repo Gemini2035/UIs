@@ -336,7 +336,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
               disabled={!canSlidePrev}
               aria-label={previousPageLabel}
             >
-              <ChevronLeftIcon className="w-5 h-5" />
+              <ChevronLeftIcon className="gemini:w-5 gemini:h-5" />
             </button>
             <button
               type="button"
@@ -348,7 +348,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
               disabled={!canSlideNext}
               aria-label={nextPageLabel}
             >
-              <ChevronRightIcon className="w-5 h-5" />
+              <ChevronRightIcon className="gemini:w-5 gemini:h-5" />
             </button>
           </>
         )}

@@ -106,12 +106,12 @@ const PaginationSizeChanger: FC<PaginationSizeChangerProps> = ({
 
   return (
     <div className={getPaginationSizeChangerStyles(className)}>
-      <span className="text-gray-600">{itemsPerPageText}</span>
+      <span className="gemini:text-gray-600">{itemsPerPageText}</span>
       <select
         value={pageSize}
         onChange={handleChange}
         disabled={disabled}
-        className="px-2 py-1 border border-gray-300 rounded-md bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:border-blue-500"
+        className="gemini:px-2 gemini:py-1 gemini:border gemini:border-gray-300 gemini:rounded-md gemini:bg-white gemini:text-gray-700 gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-blue-500 gemini:focus:ring-opacity-50 gemini:focus:border-blue-500"
       >
         {pageSizeOptions.map((option) => (
           <option key={option} value={option}>
@@ -119,7 +119,7 @@ const PaginationSizeChanger: FC<PaginationSizeChangerProps> = ({
           </option>
         ))}
       </select>
-      <span className="text-gray-600">{itemsPerPageText}</span>
+      <span className="gemini:text-gray-600">{itemsPerPageText}</span>
     </div>
   );
 };
@@ -151,19 +151,19 @@ const PaginationQuickJumper: FC<PaginationQuickJumperProps> = ({
 
   return (
     <div className={getPaginationQuickJumperStyles(className)}>
-      <span className="text-gray-600">{jumpToText}</span>
+      <span className="gemini:text-gray-600">{jumpToText}</span>
       <input
         type="number"
         value={jumpValue}
         onChange={(e) => setJumpValue(e.target.value)}
         onKeyUp={handleKeyPress}
         disabled={disabled}
-        className="w-16 px-2 py-1 border border-gray-300 rounded-md bg-white text-gray-700 text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:border-blue-500"
+        className="gemini:w-16 gemini:px-2 gemini:py-1 gemini:border gemini:border-gray-300 gemini:rounded-md gemini:bg-white gemini:text-gray-700 gemini:text-center gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-blue-500 gemini:focus:ring-opacity-50 gemini:focus:border-blue-500"
         placeholder={pageText}
         min="1"
         max={totalPages}
       />
-      <span className="text-gray-600">{pageText}</span>
+      <span className="gemini:text-gray-600">{pageText}</span>
     </div>
   );
 };
@@ -261,12 +261,12 @@ const Pagination: FC<PaginationProps> = ({
             }
           }}
           disabled={disabled}
-          className="w-12 px-2 py-1 border border-gray-300 rounded-md bg-white text-gray-700 text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:border-blue-500"
+          className="gemini:w-12 gemini:px-2 gemini:py-1 gemini:border gemini:border-gray-300 gemini:rounded-md gemini:bg-white gemini:text-gray-700 gemini:text-center gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-blue-500 gemini:focus:ring-opacity-50 gemini:focus:border-blue-500"
           min="1"
           max={totalPages}
         />
-        <span className="text-gray-500">/</span>
-        <span className="text-gray-600">{totalPages}</span>
+        <span className="gemini:text-gray-500">/</span>
+        <span className="gemini:text-gray-600">{totalPages}</span>
       </div>
     );
   }
@@ -393,7 +393,7 @@ const Pagination: FC<PaginationProps> = ({
               key={`${page}-${index}`}
               page={0}
               ellipsis
-              className="cursor-default"
+              className="gemini:cursor-default"
             >
               ...
             </PaginationItem>

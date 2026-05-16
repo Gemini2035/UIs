@@ -5,7 +5,7 @@ import type { TooltipPlacement, TooltipTheme, TooltipAnimation } from './types'
  */
 export const getThemeStyles = (theme: TooltipTheme): string => {
   const themes = {
-    light: 'bg-white text-gray-900 border border-gray-200 shadow-lg',
+    light: 'gemini:bg-white gemini:text-gray-900 gemini:border gemini:border-gray-200 gemini:shadow-lg',
   }
   return themes[theme] || themes.light
 }
@@ -23,24 +23,24 @@ export const getPlacementStyles = (): string => {
  * 获取箭头样式
  */
 export const getArrowStyles = (placement: TooltipPlacement): string => {
-  const arrowBase = 'absolute w-2 h-2 transform rotate-45'
-  const lightArrow = 'bg-white border border-gray-200'
+  const arrowBase = 'gemini:absolute gemini:w-2 gemini:h-2 gemini:transform gemini:rotate-45'
+  const lightArrow = 'gemini:bg-white gemini:border gemini:border-gray-200'
 
   const arrowColor = lightArrow
 
   const arrowPositions = {
-    top: `${arrowColor} -bottom-1 left-1/2 transform -translate-x-1/2`,
-    topLeft: `${arrowColor} -bottom-1 left-4`,
-    topRight: `${arrowColor} -bottom-1 right-4`,
-    bottom: `${arrowColor} -top-1 left-1/2 transform -translate-x-1/2`,
-    bottomLeft: `${arrowColor} -top-1 left-4`,
-    bottomRight: `${arrowColor} -top-1 right-4`,
-    left: `${arrowColor} -right-1 top-1/2 transform -translate-y-1/2`,
-    leftTop: `${arrowColor} -right-1 top-4`,
-    leftBottom: `${arrowColor} -right-1 bottom-4`,
-    right: `${arrowColor} -left-1 top-1/2 transform -translate-y-1/2`,
-    rightTop: `${arrowColor} -left-1 top-4`,
-    rightBottom: `${arrowColor} -left-1 bottom-4`,
+    top: `${arrowColor} gemini:-bottom-1 gemini:left-1/2 gemini:transform gemini:-translate-x-1/2`,
+    topLeft: `${arrowColor} gemini:-bottom-1 gemini:left-4`,
+    topRight: `${arrowColor} gemini:-bottom-1 gemini:right-4`,
+    bottom: `${arrowColor} gemini:-top-1 gemini:left-1/2 gemini:transform gemini:-translate-x-1/2`,
+    bottomLeft: `${arrowColor} gemini:-top-1 gemini:left-4`,
+    bottomRight: `${arrowColor} gemini:-top-1 gemini:right-4`,
+    left: `${arrowColor} gemini:-right-1 gemini:top-1/2 gemini:transform gemini:-translate-y-1/2`,
+    leftTop: `${arrowColor} gemini:-right-1 gemini:top-4`,
+    leftBottom: `${arrowColor} gemini:-right-1 gemini:bottom-4`,
+    right: `${arrowColor} gemini:-left-1 gemini:top-1/2 gemini:transform gemini:-translate-y-1/2`,
+    rightTop: `${arrowColor} gemini:-left-1 gemini:top-4`,
+    rightBottom: `${arrowColor} gemini:-left-1 gemini:bottom-4`,
   }
 
   return `${arrowBase} ${arrowPositions[placement] || arrowPositions.top}`
@@ -52,14 +52,14 @@ export const getArrowStyles = (placement: TooltipPlacement): string => {
 export const getAnimationStyles = (animation: TooltipAnimation, visible: boolean): string => {
   const animations = {
     fade: visible
-      ? 'opacity-100 transition-opacity duration-200 ease-in-out'
-      : 'opacity-0 transition-opacity duration-200 ease-in-out',
+      ? 'gemini:opacity-100 gemini:transition-opacity gemini:duration-200 gemini:ease-in-out'
+      : 'gemini:opacity-0 gemini:transition-opacity gemini:duration-200 gemini:ease-in-out',
     zoom: visible
-      ? 'opacity-100 scale-100 transition-all duration-200 ease-in-out'
-      : 'opacity-0 scale-95 transition-all duration-200 ease-in-out',
+      ? 'gemini:opacity-100 gemini:scale-100 gemini:transition-all gemini:duration-200 gemini:ease-in-out'
+      : 'gemini:opacity-0 gemini:scale-95 gemini:transition-all gemini:duration-200 gemini:ease-in-out',
     slide: visible
-      ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in-out'
-      : 'opacity-0 translate-y-1 transition-all duration-200 ease-in-out',
+      ? 'gemini:opacity-100 gemini:translate-y-0 gemini:transition-all gemini:duration-200 gemini:ease-in-out'
+      : 'gemini:opacity-0 gemini:translate-y-1 gemini:transition-all gemini:duration-200 gemini:ease-in-out',
     none: '',
   }
   return animations[animation] || animations.fade
@@ -70,16 +70,16 @@ export const getAnimationStyles = (animation: TooltipAnimation, visible: boolean
  */
 export const getBaseStyles = (): string => {
   return [
-    'absolute z-50',
-    'px-3 py-2',
-    'text-sm font-medium',
-    'rounded-md',
-    'pointer-events-none',
-    'max-w-xs',
-    'break-words',
-    'whitespace-normal',
-    'min-h-fit',
-    'h-auto',
+    'gemini:absolute gemini:z-50',
+    'gemini:px-3 gemini:py-2',
+    'gemini:text-sm gemini:font-medium',
+    'gemini:rounded-md',
+    'gemini:pointer-events-none',
+    'gemini:max-w-xs',
+    'gemini:break-words',
+    'gemini:whitespace-normal',
+    'gemini:min-h-fit',
+    'gemini:h-auto',
   ].join(' ')
 }
 
@@ -89,9 +89,9 @@ export const getBaseStyles = (): string => {
 export const getInteractiveStyles = (interactive: boolean, trigger: string): string => {
   // 如果是hover触发，需要允许鼠标事件以便用户可以hover到tooltip内容上
   if (trigger === 'hover') {
-    return 'pointer-events-auto'
+    return 'gemini:pointer-events-auto'
   }
-  return interactive ? 'pointer-events-auto' : 'pointer-events-none'
+  return interactive ? 'gemini:pointer-events-auto' : 'gemini:pointer-events-none'
 }
 
 /**
@@ -124,4 +124,3 @@ export const getTooltipStyles = (
     .replace(/\s+/g, ' ')
     .trim()
 }
-

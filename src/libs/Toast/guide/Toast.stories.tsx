@@ -18,28 +18,28 @@ type Story = StoryObj<typeof ToastContainer>;
 // =======================
 export const Basic: Story = {
   render: () => (
-    <div className="p-4 space-x-2">
+    <div className="gemini:p-4 gemini:space-x-2">
       <ToastContainer />
       <button
-        className="px-4 py-2 bg-green-500 text-white rounded"
+        className="gemini:px-4 gemini:py-2 gemini:bg-green-500 gemini:text-white gemini:rounded"
         onClick={() => toast.success('操作成功！')}
       >
         成功
       </button>
       <button
-        className="px-4 py-2 bg-red-500 text-white rounded"
+        className="gemini:px-4 gemini:py-2 gemini:bg-red-500 gemini:text-white gemini:rounded"
         onClick={() => toast.error('操作失败，请重试')}
       >
         错误
       </button>
       <button
-        className="px-4 py-2 bg-yellow-500 text-white rounded"
+        className="gemini:px-4 gemini:py-2 gemini:bg-yellow-500 gemini:text-white gemini:rounded"
         onClick={() => toast.warning('请注意检查输入')}
       >
         警告
       </button>
       <button
-        className="px-4 py-2 bg-blue-500 text-white rounded"
+        className="gemini:px-4 gemini:py-2 gemini:bg-blue-500 gemini:text-white gemini:rounded"
         onClick={() => toast.info('这是一条提示信息')}
       >
         信息
@@ -53,10 +53,10 @@ export const Basic: Story = {
 // =======================
 export const CustomOptions: Story = {
   render: () => (
-    <div className="p-4">
+    <div className="gemini:p-4">
       <ToastContainer />
       <button
-        className="px-4 py-2 bg-purple-500 text-white rounded"
+        className="gemini:px-4 gemini:py-2 gemini:bg-purple-500 gemini:text-white gemini:rounded"
         onClick={() =>
           toast.show({
             message: '自定义提示',

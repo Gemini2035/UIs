@@ -49,7 +49,7 @@ export const Basic: Story = {
 // =======================
 export const Colors: Story = {
   render: () => (
-    <div className="flex gap-2 flex-wrap">
+    <div className="gemini:flex gemini:gap-2 gemini:flex-wrap">
       <Tag color="default">Default</Tag>
       <Tag color="primary">Primary</Tag>
       <Tag color="success">Success</Tag>
@@ -65,7 +65,7 @@ export const Colors: Story = {
 // =======================
 export const Sizes: Story = {
   render: () => (
-    <div className="flex gap-2 items-center">
+    <div className="gemini:flex gemini:gap-2 gemini:items-center">
       <Tag size="small">Small</Tag>
       <Tag size="middle">Middle</Tag>
       <Tag size="large">Large</Tag>
@@ -117,6 +117,6 @@ export const NoBorder: Story = {
 export const CustomStyle: Story = {
   args: {
     children: 'Custom Style',
-    className: 'bg-purple-100 text-purple-700',
+    className: 'gemini:bg-purple-100 gemini:text-purple-700',
   },
 };

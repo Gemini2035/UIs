@@ -94,7 +94,7 @@ export const Default: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:gap-4">
       <Button type="primary">主要按钮</Button>
       <Button type="secondary">次要按钮</Button>
       <Button type="outline">轮廓按钮</Button>
@@ -118,7 +118,7 @@ export const Variants: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:items-center gemini:gap-4">
       <Button size="xs">超小按钮</Button>
       <Button size="sm">小按钮</Button>
       <Button size="md">中等按钮</Button>
@@ -140,7 +140,7 @@ export const Sizes: Story = {
  */
 export const Rounded: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:gap-4">
       <Button rounded={false}>方框按钮</Button>
       <Button rounded={true}>圆角按钮</Button>
     </div>
@@ -159,7 +159,7 @@ export const Rounded: Story = {
  */
 export const States: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:gap-4">
       <Button>正常状态</Button>
       <Button loading>加载中</Button>
       <Button disabled>禁用</Button>
@@ -211,7 +211,7 @@ export const FormIntegration: Story = {
       onReset={() => {
         alert('表单已重置')
       }}
-      className="flex gap-4"
+      className="gemini:flex gemini:gap-4"
     >
       <Button type="primary" htmlType="submit">
         提交表单
@@ -247,11 +247,11 @@ export const AllVariantsAndSizes: Story = {
     const sizes: Array<'xs' | 'sm' | 'md' | 'lg' | 'xl'> = ['xs', 'sm', 'md', 'lg', 'xl']
 
     return (
-      <div className="space-y-6">
+      <div className="gemini:space-y-6">
         {variants.map((variant) => (
-          <div key={variant} className="space-y-2">
-            <h3 className="text-sm font-semibold text-gray-700 capitalize">{variant}</h3>
-            <div className="flex flex-wrap items-center gap-2">
+          <div key={variant} className="gemini:space-y-2">
+            <h3 className="gemini:text-sm gemini:font-semibold gemini:text-gray-700 gemini:capitalize">{variant}</h3>
+            <div className="gemini:flex gemini:flex-wrap gemini:items-center gemini:gap-2">
               {sizes.map((size) => (
                 <Button key={size} type={variant} size={size}>
                   {size.toUpperCase()}
@@ -280,10 +280,10 @@ export const RoundedComparison: Story = {
     const variants: Array<'primary' | 'secondary' | 'outline'> = ['primary', 'secondary', 'outline']
 
     return (
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <h3 className="text-sm font-semibold text-gray-700">方框按钮 (rounded=false)</h3>
-          <div className="flex flex-wrap gap-2">
+      <div className="gemini:space-y-6">
+        <div className="gemini:space-y-2">
+          <h3 className="gemini:text-sm gemini:font-semibold gemini:text-gray-700">方框按钮 (rounded=false)</h3>
+          <div className="gemini:flex gemini:flex-wrap gemini:gap-2">
             {variants.map((variant) => (
               <Button key={variant} type={variant} rounded={false}>
                 {variant}
@@ -291,9 +291,9 @@ export const RoundedComparison: Story = {
             ))}
           </div>
         </div>
-        <div className="space-y-2">
-          <h3 className="text-sm font-semibold text-gray-700">圆角按钮 (rounded=true)</h3>
-          <div className="flex flex-wrap gap-2">
+        <div className="gemini:space-y-2">
+          <h3 className="gemini:text-sm gemini:font-semibold gemini:text-gray-700">圆角按钮 (rounded=true)</h3>
+          <div className="gemini:flex gemini:flex-wrap gemini:gap-2">
             {variants.map((variant) => (
               <Button key={variant} type={variant} rounded={true}>
                 {variant}
@@ -318,7 +318,7 @@ export const RoundedComparison: Story = {
  */
 export const LoadingStates: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:gap-4">
       <Button type="primary" loading>
         加载中
       </Button>
@@ -347,7 +347,7 @@ export const LoadingStates: Story = {
  */
 export const DisabledStates: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:gap-4">
       <Button type="primary" disabled>
         禁用
       </Button>

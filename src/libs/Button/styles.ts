@@ -5,13 +5,13 @@ import type { ButtonType, ButtonSize } from './types'
  */
 export const getVariantStyles = (variant: ButtonType): string => {
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    default: 'bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-500 border border-gray-300',
-    secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500 border border-gray-300',
-    outline: 'bg-transparent text-blue-600 hover:bg-blue-50 focus:ring-blue-500 border border-blue-600',
-    ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
-    text: 'bg-transparent text-gray-700 focus:ring-gray-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+    primary: 'gemini:bg-blue-600 gemini:text-white gemini:hover:bg-blue-700 gemini:focus:ring-blue-500',
+    default: 'gemini:bg-white gemini:text-gray-700 gemini:hover:bg-gray-50 gemini:focus:ring-gray-500 gemini:border gemini:border-gray-300',
+    secondary: 'gemini:bg-gray-100 gemini:text-gray-900 gemini:hover:bg-gray-200 gemini:focus:ring-gray-500 gemini:border gemini:border-gray-300',
+    outline: 'gemini:bg-transparent gemini:text-blue-600 gemini:hover:bg-blue-50 gemini:focus:ring-blue-500 gemini:border gemini:border-blue-600',
+    ghost: 'gemini:bg-transparent gemini:text-gray-700 gemini:hover:bg-gray-100 gemini:focus:ring-gray-500',
+    text: 'gemini:bg-transparent gemini:text-gray-700 gemini:focus:ring-gray-500',
+    danger: 'gemini:bg-red-600 gemini:text-white gemini:hover:bg-red-700 gemini:focus:ring-red-500',
   }
   return variants[variant] || variants.primary
 }
@@ -21,11 +21,11 @@ export const getVariantStyles = (variant: ButtonType): string => {
  */
 export const getSizeStyles = (size: ButtonSize): string => {
   const sizes = {
-    xs: 'px-2 py-1 text-xs min-h-[1.5rem]',
-    sm: 'px-3 py-1.5 text-sm min-h-[2rem]',
-    md: 'px-4 py-2 text-sm min-h-[2.5rem]',
-    lg: 'px-6 py-3 text-base min-h-[3rem]',
-    xl: 'px-8 py-4 text-lg min-h-[3.5rem]',
+    xs: 'gemini:px-2 gemini:py-1 gemini:text-xs gemini:min-h-[1.5rem]',
+    sm: 'gemini:px-3 gemini:py-1.5 gemini:text-sm gemini:min-h-[2rem]',
+    md: 'gemini:px-4 gemini:py-2 gemini:text-sm gemini:min-h-[2.5rem]',
+    lg: 'gemini:px-6 gemini:py-3 gemini:text-base gemini:min-h-[3rem]',
+    xl: 'gemini:px-8 gemini:py-4 gemini:text-lg gemini:min-h-[3.5rem]',
   }
   return sizes[size] || sizes.md
 }
@@ -34,7 +34,7 @@ export const getSizeStyles = (size: ButtonSize): string => {
  * 获取按钮圆角样式
  */
 export const getRoundedStyles = (rounded: boolean): string => {
-  return rounded ? 'rounded-lg' : 'rounded-none'
+  return rounded ? 'gemini:rounded-lg' : 'gemini:rounded-none'
 }
 
 /**
@@ -48,12 +48,12 @@ export const getButtonStyles = (
   loading: boolean = false,
   customClassName?: string
 ): string => {
-  const baseStyles = 'inline-flex gap-1 items-center justify-center font-medium text-center transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'
+  const baseStyles = 'gemini:inline-flex gemini:gap-1 gemini:items-center gemini:justify-center gemini:font-medium gemini:text-center gemini:transition-all gemini:duration-200 gemini:ease-in-out gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-offset-2 gemini:cursor-pointer gemini:disabled:opacity-50 gemini:disabled:cursor-not-allowed'
   const variantStyles = getVariantStyles(variant)
   const sizeStyles = getSizeStyles(size)
   const roundedStyles = getRoundedStyles(rounded)
-  const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : ''
-  const loadingStyles = loading ? 'cursor-wait' : ''
+  const disabledStyles = disabled ? 'gemini:opacity-50 gemini:cursor-not-allowed' : ''
+  const loadingStyles = loading ? 'gemini:cursor-wait' : ''
   
   return [
     baseStyles,

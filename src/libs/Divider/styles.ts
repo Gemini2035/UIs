@@ -5,8 +5,8 @@ import type { DividerOrientation, DividerThickness } from './types'
  */
 export const getOrientationStyles = (orientation: DividerOrientation): string => {
   const orientations = {
-    horizontal: 'w-full h-0',
-    vertical: 'h-full w-0',
+    horizontal: 'gemini:w-full gemini:h-0',
+    vertical: 'gemini:h-full gemini:w-0',
   }
   return orientations[orientation]
 }
@@ -16,10 +16,10 @@ export const getOrientationStyles = (orientation: DividerOrientation): string =>
  */
 export const getThicknessStyles = (thickness: DividerThickness, orientation: DividerOrientation): string => {
   const thicknessMap = {
-    thin: orientation === 'horizontal' ? 'h-px' : 'w-px',
-    medium: orientation === 'horizontal' ? 'h-0.5' : 'w-0.5',
-    thick: orientation === 'horizontal' ? 'h-1' : 'w-1',
-    'extra-thick': orientation === 'horizontal' ? 'h-1.5' : 'w-1.5',
+    thin: orientation === 'horizontal' ? 'gemini:h-px' : 'gemini:w-px',
+    medium: orientation === 'horizontal' ? 'gemini:h-0.5' : 'gemini:w-0.5',
+    thick: orientation === 'horizontal' ? 'gemini:h-1' : 'gemini:w-1',
+    'extra-thick': orientation === 'horizontal' ? 'gemini:h-1.5' : 'gemini:w-1.5',
   }
   return thicknessMap[thickness]
 }
@@ -28,7 +28,7 @@ export const getThicknessStyles = (thickness: DividerThickness, orientation: Div
  * 获取分割线圆角样式
  */
 export const getRoundedStyles = (rounded: boolean): string => {
-  return rounded ? 'rounded-full' : 'rounded-none'
+  return rounded ? 'gemini:rounded-full' : 'gemini:rounded-none'
 }
 
 /**
@@ -36,16 +36,16 @@ export const getRoundedStyles = (rounded: boolean): string => {
  */
 export const getColorStyles = (color?: string): string => {
   if (color) {
-    return `bg-[${color}]`
+    return `gemini:bg-[${color}]`
   }
-  return 'bg-gray-200'
+  return 'gemini:bg-gray-200'
 }
 
 /**
  * 获取虚线样式
  */
 export const getDashedStyles = (dashed: boolean): string => {
-  return dashed ? 'border-dashed' : 'border-solid'
+  return dashed ? 'gemini:border-dashed' : 'gemini:border-solid'
 }
 
 /**
@@ -53,7 +53,7 @@ export const getDashedStyles = (dashed: boolean): string => {
  */
 export const getLengthStyles = (length?: number, orientation: DividerOrientation = 'horizontal'): string => {
   if (length && orientation === 'horizontal') {
-    return `w-[${length}%]`
+    return `gemini:w-[${length}%]`
   }
   return ''
 }
@@ -73,7 +73,7 @@ export const getDividerStyles = (
   // 如果提供了自定义类名，只使用基础样式和自定义类名
   if (customClassName) {
     return [
-      'block', // 确保元素显示
+      'gemini:block', // 确保元素显示
       customClassName
     ]
       .filter(Boolean)
@@ -82,7 +82,7 @@ export const getDividerStyles = (
   }
   
   // 默认样式逻辑
-  const baseStyles = orientation === 'vertical' ? 'bg-gray-200' : 'border-0'
+  const baseStyles = orientation === 'vertical' ? 'gemini:bg-gray-200' : 'gemini:border-0'
   const orientationStyles = getOrientationStyles(orientation)
   const thicknessStyles = getThicknessStyles(thickness, orientation)
   const roundedStyles = getRoundedStyles(rounded)

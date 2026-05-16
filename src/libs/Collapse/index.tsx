@@ -23,9 +23,9 @@ const DefaultArrowIcon = ({
 }) => (
   <ArrowIcon
     className={cn(
-      "shrink-0 transition-transform duration-200 ease-in-out",
-      isActive ? "rotate-180" : "rotate-0",
-      disabled ? "opacity-50" : ""
+      "gemini:shrink-0 gemini:transition-transform gemini:duration-200 gemini:ease-in-out",
+      isActive ? "gemini:rotate-180" : "gemini:rotate-0",
+      disabled ? "gemini:opacity-50" : ""
     )}
   />
 );
@@ -213,10 +213,10 @@ const CollapsePanel = forwardRef<
         return (
           <span
             className={cn(
-              "shrink-0 transition-transform duration-200 ease-in-out",
-              isActive ? "rotate-180" : "rotate-0",
-              disabled ? "opacity-50" : "",
-              collapsible === "icon" ? "cursor-pointer" : ""
+              "gemini:shrink-0 gemini:transition-transform gemini:duration-200 gemini:ease-in-out",
+              isActive ? "gemini:rotate-180" : "gemini:rotate-0",
+              disabled ? "gemini:opacity-50" : "",
+              collapsible === "icon" ? "gemini:cursor-pointer" : ""
             )}
             onClick={handleArrowClick}
           >
@@ -231,18 +231,18 @@ const CollapsePanel = forwardRef<
     return (
       <div
         ref={ref}
-        className={cn("border-b border-gray-200 last:border-b-0", className)}
+        className={cn("gemini:border-b gemini:border-gray-200 gemini:last:border-b-0", className)}
         {...props}
       >
         {/* 面板头部容器 */}
         <div
           className={cn(
-            "flex items-center justify-between w-full text-left font-medium transition-colors duration-200",
-            "px-4 py-3",
+            "gemini:flex gemini:items-center gemini:justify-between gemini:w-full gemini:text-left gemini:font-medium gemini:transition-colors gemini:duration-200",
+            "gemini:px-4 gemini:py-3",
             disabled
-              ? "opacity-50 cursor-not-allowed"
-              : "cursor-pointer hover:bg-gray-50",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset",
+              ? "gemini:opacity-50 gemini:cursor-not-allowed"
+              : "gemini:cursor-pointer gemini:hover:bg-gray-50",
+            "gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-blue-500 gemini:focus:ring-inset",
             headerContainerClassName
           )}
           onClick={handleHeaderClick}
@@ -252,7 +252,7 @@ const CollapsePanel = forwardRef<
           aria-disabled={disabled}
         >
           {/* 面板头部内容 */}
-          <div className={cn("flex-1 pr-2", headerContentClassName)}>
+          <div className={cn("gemini:flex-1 gemini:pr-2", headerContentClassName)}>
             {header}
           </div>
           {renderArrow()}
@@ -261,11 +261,11 @@ const CollapsePanel = forwardRef<
         {/* 面板内容 */}
         <div
           className={cn(
-            "overflow-hidden transition-all duration-300 ease-in-out",
-            isActive ? "max-h-none opacity-100" : "max-h-0 opacity-0"
+            "gemini:overflow-hidden gemini:transition-all gemini:duration-300 gemini:ease-in-out",
+            isActive ? "gemini:max-h-none gemini:opacity-100" : "gemini:max-h-0 gemini:opacity-0"
           )}
         >
-          <div className={cn("px-4 pb-4 text-gray-700", contentClassName)}>
+          <div className={cn("gemini:px-4 gemini:pb-4 gemini:text-gray-700", contentClassName)}>
             {children}
           </div>
         </div>

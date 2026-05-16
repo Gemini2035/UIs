@@ -40,7 +40,7 @@ const TimelineItem = forwardRef<TimelineItemRef, ExtendedTimelineItemProps>(
     const renderDot = (): ReactNode => {
       if (dot) {
         return (
-          <div className={cn('shrink-0', dotStyles)}>
+          <div className={cn('gemini:shrink-0', dotStyles)}>
             {dot}
           </div>
         )
@@ -72,18 +72,18 @@ const TimelineItem = forwardRef<TimelineItemRef, ExtendedTimelineItemProps>(
       if (!showLine || isLast) return null
 
       const lineColorClass = lineColor 
-        ? `bg-[${lineColor}]` 
-        : color === 'blue' ? 'bg-blue-300' 
-        : color === 'green' ? 'bg-green-300'
-        : color === 'red' ? 'bg-red-300'
-        : color === 'orange' ? 'bg-orange-300'
-        : color === 'purple' ? 'bg-purple-300'
-        : 'bg-gray-300'
+        ? `gemini:bg-[${lineColor}]` 
+        : color === 'blue' ? 'gemini:bg-blue-300' 
+        : color === 'green' ? 'gemini:bg-green-300'
+        : color === 'red' ? 'gemini:bg-red-300'
+        : color === 'orange' ? 'gemini:bg-orange-300'
+        : color === 'purple' ? 'gemini:bg-purple-300'
+        : 'gemini:bg-gray-300'
 
       return (
         <div 
           className={cn(
-            'absolute left-6 top-0 bottom-0 w-0.5 rounded-full',
+            'gemini:absolute gemini:left-6 gemini:top-0 gemini:bottom-0 gemini:w-0.5 gemini:rounded-full',
             lineColorClass
           )}
           style={lineColor ? { backgroundColor: lineColor } : undefined}
@@ -104,7 +104,7 @@ const TimelineItem = forwardRef<TimelineItemRef, ExtendedTimelineItemProps>(
         {renderDot()}
         
         {/* 内容区域 */}
-        <div className="flex-1">
+        <div className="gemini:flex-1">
           {/* 标签 */}
           {label && (
             <div className={cn(labelStyles)}>

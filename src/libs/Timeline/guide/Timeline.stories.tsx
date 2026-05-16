@@ -59,7 +59,7 @@ export const Basic: Story = {
 // =======================
 export const Modes: Story = {
   render: () => (
-    <div className="flex flex-col gap-6 w-[600px]">
+    <div className="gemini:flex gemini:flex-col gemini:gap-6 gemini:w-[600px]">
       <Timeline mode="left">
         <TimelineItem label="2023-01-01">左侧模式</TimelineItem>
         <TimelineItem label="2023-02-01">内容</TimelineItem>
@@ -82,7 +82,7 @@ export const Modes: Story = {
 // =======================
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-6 w-[600px]">
+    <div className="gemini:flex gemini:flex-col gemini:gap-6 gemini:w-[600px]">
       <Timeline size="sm">
         <TimelineItem label="2023-01-01">小尺寸</TimelineItem>
         <TimelineItem label="2023-02-01">内容</TimelineItem>
@@ -127,10 +127,10 @@ export const Statuses: Story = {
 export const CustomDot: Story = {
   render: () => (
     <Timeline>
-      <TimelineItem label="2023-01-01" dot={<span className="text-2xl">🎉</span>}>
+      <TimelineItem label="2023-01-01" dot={<span className="gemini:text-2xl">🎉</span>}>
         自定义图标
       </TimelineItem>
-      <TimelineItem label="2023-02-01" dot={<span className="text-2xl">⭐</span>}>
+      <TimelineItem label="2023-02-01" dot={<span className="gemini:text-2xl">⭐</span>}>
         自定义图标
       </TimelineItem>
     </Timeline>

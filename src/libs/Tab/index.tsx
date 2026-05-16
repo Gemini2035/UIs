@@ -36,43 +36,43 @@ const Tab: FC<TabProps> = ({
   // 尺寸样式
   const sizeStyles = {
     small: {
-      tabBar: 'h-8',
-      tab: 'px-3 py-1 text-sm',
-      content: 'pt-3'
+      tabBar: 'gemini:h-8',
+      tab: 'gemini:px-3 gemini:py-1 gemini:text-sm',
+      content: 'gemini:pt-3'
     },
     medium: {
-      tabBar: 'h-10',
-      tab: 'px-4 py-2 text-sm',
-      content: 'pt-4'
+      tabBar: 'gemini:h-10',
+      tab: 'gemini:px-4 gemini:py-2 gemini:text-sm',
+      content: 'gemini:pt-4'
     },
     large: {
-      tabBar: 'h-12',
-      tab: 'px-6 py-3 text-base',
-      content: 'pt-6'
+      tabBar: 'gemini:h-12',
+      tab: 'gemini:px-6 gemini:py-3 gemini:text-base',
+      content: 'gemini:pt-6'
     }
   }
 
   // 类型样式
   const typeStyles = {
     line: {
-      tabBar: 'border-b border-gray-200',
-      tab: 'border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300',
-      activeTab: 'text-blue-600 border-blue-500',
+      tabBar: 'gemini:border-b gemini:border-gray-200',
+      tab: 'gemini:border-b-2 gemini:border-transparent gemini:hover:text-blue-600 gemini:hover:border-blue-300',
+      activeTab: 'gemini:text-blue-600 gemini:border-blue-500',
       content: ''
     },
     card: {
-      tabBar: 'bg-gray-50 rounded-lg p-1',
-      tab: 'rounded-md hover:bg-white hover:text-blue-600',
-      activeTab: 'bg-white text-blue-600 shadow-sm',
-      content: 'bg-white rounded-lg border border-gray-200 mt-2'
+      tabBar: 'gemini:bg-gray-50 gemini:rounded-lg gemini:p-1',
+      tab: 'gemini:rounded-md gemini:hover:bg-white gemini:hover:text-blue-600',
+      activeTab: 'gemini:bg-white gemini:text-blue-600 gemini:shadow-sm',
+      content: 'gemini:bg-white gemini:rounded-lg gemini:border gemini:border-gray-200 gemini:mt-2'
     }
   }
 
   return (
-    <div className={cn('w-full', className)}>
+    <div className={cn('gemini:w-full', className)}>
       {/* Tab导航栏 - 右上角 */}
       <div className={cn(
-        'flex items-center justify-end',
+        'gemini:flex gemini:items-center gemini:justify-end',
         sizeStyles[size].tabBar,
         typeStyles[type].tabBar,
         tabBarClassName
@@ -87,10 +87,10 @@ const Tab: FC<TabProps> = ({
               onClick={() => handleTabClick(item.key, isDisabled)}
               disabled={isDisabled}
               className={cn(
-                'flex items-center justify-center font-medium transition-all duration-200 focus:outline-none cursor-pointer',
+                'gemini:flex gemini:items-center gemini:justify-center gemini:font-medium gemini:transition-all gemini:duration-200 gemini:focus:outline-none gemini:cursor-pointer',
                 sizeStyles[size].tab,
                 isActive ? typeStyles[type].activeTab : typeStyles[type].tab,
-                isDisabled && 'opacity-50 cursor-not-allowed hover:text-gray-500 hover:border-transparent'
+                isDisabled && 'gemini:opacity-50 gemini:cursor-not-allowed gemini:hover:text-gray-500 gemini:hover:border-transparent'
               )}
             >
               {item.label}

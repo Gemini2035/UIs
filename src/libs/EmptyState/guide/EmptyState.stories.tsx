@@ -56,7 +56,7 @@ export const WithAction: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-8">
+    <div className="gemini:flex gemini:flex-col gemini:gap-8">
       <EmptyState
         size="sm"
         icon="document"
@@ -81,7 +81,7 @@ export const Sizes: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div className="flex flex-col gap-8">
+    <div className="gemini:flex gemini:flex-col gemini:gap-8">
       <EmptyState
         variant="default"
         icon="users"
@@ -111,7 +111,7 @@ export const CustomIcon: Story = {
   render: () => (
     <EmptyState
       icon={
-        <div className="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center">
+        <div className="gemini:w-12 gemini:h-12 gemini:rounded-full gemini:bg-blue-500 gemini:text-white gemini:flex gemini:items-center gemini:justify-center">
           ⭐
         </div>
       }
@@ -125,7 +125,7 @@ export const WithoutIcon: Story = {
   args: {
     showIcon: false,
     title: 'No icon',
-    description: 'Icon is hidden',
+    description: 'Icon is gemini:hidden',
   },
 };
 
@@ -134,6 +134,6 @@ export const CustomStyle: Story = {
     icon: 'info',
     title: 'Custom styled',
     description: 'With custom className',
-    className: 'bg-blue-50 border border-blue-200',
+    className: 'gemini:bg-blue-50 gemini:border gemini:border-blue-200',
   },
 };

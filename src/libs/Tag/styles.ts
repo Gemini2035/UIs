@@ -2,37 +2,37 @@ import { cn } from "@/utils";
 import type { TagColor, TagSize } from "./types";
 
 export const tagStyles = {
-  base: "inline-flex items-center font-medium rounded-md border border-solid transition-all duration-200",
+  base: "gemini:inline-flex gemini:items-center gemini:font-medium gemini:rounded-md gemini:border gemini:border-solid gemini:transition-all gemini:duration-200",
   
   colors: {
-    default: "bg-gray-100 text-gray-700 border-gray-200",
-    primary: "bg-blue-100 text-blue-700 border-blue-200",
-    success: "bg-green-100 text-green-700 border-green-200",
-    warning: "bg-yellow-100 text-yellow-700 border-yellow-200",
-    error: "bg-red-100 text-red-700 border-red-200",
-    info: "bg-cyan-100 text-cyan-700 border-cyan-200",
-    magenta: "bg-pink-100 text-pink-700 border-pink-200",
-    red: "bg-red-100 text-red-700 border-red-200",
-    volcano: "bg-orange-100 text-orange-700 border-orange-200",
-    orange: "bg-orange-100 text-orange-700 border-orange-200",
-    gold: "bg-yellow-100 text-yellow-700 border-yellow-200",
-    lime: "bg-lime-100 text-lime-700 border-lime-200",
-    green: "bg-green-100 text-green-700 border-green-200",
-    cyan: "bg-cyan-100 text-cyan-700 border-cyan-200",
-    blue: "bg-blue-100 text-blue-700 border-blue-200",
-    geekblue: "bg-indigo-100 text-indigo-700 border-indigo-200",
-    purple: "bg-purple-100 text-purple-700 border-purple-200"
+    default: "gemini:bg-gray-100 gemini:text-gray-700 gemini:border-gray-200",
+    primary: "gemini:bg-blue-100 gemini:text-blue-700 gemini:border-blue-200",
+    success: "gemini:bg-green-100 gemini:text-green-700 gemini:border-green-200",
+    warning: "gemini:bg-yellow-100 gemini:text-yellow-700 gemini:border-yellow-200",
+    error: "gemini:bg-red-100 gemini:text-red-700 gemini:border-red-200",
+    info: "gemini:bg-cyan-100 gemini:text-cyan-700 gemini:border-cyan-200",
+    magenta: "gemini:bg-pink-100 gemini:text-pink-700 gemini:border-pink-200",
+    red: "gemini:bg-red-100 gemini:text-red-700 gemini:border-red-200",
+    volcano: "gemini:bg-orange-100 gemini:text-orange-700 gemini:border-orange-200",
+    orange: "gemini:bg-orange-100 gemini:text-orange-700 gemini:border-orange-200",
+    gold: "gemini:bg-yellow-100 gemini:text-yellow-700 gemini:border-yellow-200",
+    lime: "gemini:bg-lime-100 gemini:text-lime-700 gemini:border-lime-200",
+    green: "gemini:bg-green-100 gemini:text-green-700 gemini:border-green-200",
+    cyan: "gemini:bg-cyan-100 gemini:text-cyan-700 gemini:border-cyan-200",
+    blue: "gemini:bg-blue-100 gemini:text-blue-700 gemini:border-blue-200",
+    geekblue: "gemini:bg-indigo-100 gemini:text-indigo-700 gemini:border-indigo-200",
+    purple: "gemini:bg-purple-100 gemini:text-purple-700 gemini:border-purple-200"
   },
   
   sizes: {
-    small: "px-2 py-0.5 text-xs h-5",
-    middle: "px-2.5 py-1 text-sm h-6",
-    large: "px-3 py-1.5 text-base h-8"
+    small: "gemini:px-2 gemini:py-0.5 gemini:text-xs gemini:h-5",
+    middle: "gemini:px-2.5 gemini:py-1 gemini:text-sm gemini:h-6",
+    large: "gemini:px-3 gemini:py-1.5 gemini:text-base gemini:h-8"
   },
 
   states: {
-    hover: "hover:opacity-80",
-    closable: "cursor-pointer hover:bg-opacity-80"
+    hover: "gemini:hover:opacity-80",
+    closable: "gemini:cursor-pointer gemini:hover:bg-opacity-80"
   }
 };
 
@@ -51,11 +51,11 @@ export function getTagStyles(
     tagStyles.sizes[size],
     closable && tagStyles.states.closable,
     !closable && tagStyles.states.hover,
-    !bordered && "border-transparent",
+    !bordered && "gemini:border-transparent",
     className
   );
 }
 
 export function getCloseIconStyles() {
-  return "ml-1 cursor-pointer hover:opacity-70 transition-opacity duration-200";
+  return "gemini:ml-1 gemini:cursor-pointer gemini:hover:opacity-70 gemini:transition-opacity gemini:duration-200";
 }

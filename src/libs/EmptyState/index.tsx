@@ -45,7 +45,7 @@ export const EmptyState = forwardRef<EmptyStateRef, EmptyStateProps>(
           <div className={iconContainerStyles}>
             <EmptyStateIcon
               type={icon as EmptyStateIconType}
-              className="w-full h-full"
+              className="gemini:w-full gemini:h-full"
             />
           </div>
         );

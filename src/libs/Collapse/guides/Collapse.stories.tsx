@@ -93,7 +93,7 @@ export const Controlled: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div className="space-y-6">
+    <div className="gemini:space-y-6">
       <Collapse variant="default">
         <Collapse.Panel header="默认样式" key="1">
           内容
@@ -117,7 +117,7 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="space-y-6">
+    <div className="gemini:space-y-6">
       <Collapse size="sm">
         <Collapse.Panel header="小尺寸" key="1">
           内容
@@ -182,7 +182,7 @@ export const CustomHeader: Story = {
       <Collapse.Panel
         key="1"
         header={
-          <div className="flex items-center gap-2">
+          <div className="gemini:flex gemini:items-center gemini:gap-2">
             <span>📝</span>
             <span>自定义头部</span>
           </div>
@@ -196,12 +196,12 @@ export const CustomHeader: Story = {
 
 export const CustomStyle: Story = {
   render: () => (
-    <Collapse className="border border-dashed border-blue-400">
+    <Collapse className="gemini:border gemini:border-dashed gemini:border-blue-400">
       <Collapse.Panel
         header="自定义样式"
         key="1"
-        headerContainerClassName="bg-blue-50 text-blue-700"
-        contentClassName="bg-gray-50"
+        headerContainerClassName="gemini:bg-blue-50 gemini:text-blue-700"
+        contentClassName="gemini:bg-gray-50"
       >
         内容
       </Collapse.Panel>

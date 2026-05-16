@@ -6,17 +6,17 @@ const items = [
   {
     key: "tab1",
     label: "标签页 1",
-    children: <div className="p-4">内容 1</div>,
+    children: <div className="gemini:p-4">内容 1</div>,
   },
   {
     key: "tab2",
     label: "标签页 2",
-    children: <div className="p-4">内容 2</div>,
+    children: <div className="gemini:p-4">内容 2</div>,
   },
   {
     key: "tab3",
     label: "标签页 3",
-    children: <div className="p-4">内容 3</div>,
+    children: <div className="gemini:p-4">内容 3</div>,
   },
 ];
 
@@ -26,7 +26,7 @@ const itemsWithDisabled = [
     key: "tab4",
     label: "禁用标签",
     disabled: true,
-    children: <div className="p-4">不可用内容</div>,
+    children: <div className="gemini:p-4">不可用内容</div>,
   },
 ];
 
@@ -95,7 +95,7 @@ export const CardType: Story = {
 // =======================
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-6 w-[600px]">
+    <div className="gemini:flex gemini:flex-col gemini:gap-6 gemini:w-[600px]">
       <Tab items={items} size="small" />
       <Tab items={items} size="medium" />
       <Tab items={items} size="large" />
@@ -121,14 +121,14 @@ export const Controlled: Story = {
       const [activeKey, setActiveKey] = useState("tab1");
 
       return (
-        <div className="w-[600px]">
+        <div className="gemini:w-[600px]">
           <Tab
             items={items}
             activeKey={activeKey}
             onChange={(key) => setActiveKey(key)}
           />
 
-          <div className="mt-4 text-sm text-gray-500">
+          <div className="gemini:mt-4 gemini:text-sm gemini:text-gray-500">
             当前激活 Tab：<strong>{activeKey}</strong>
           </div>
         </div>
@@ -144,7 +144,7 @@ export const Controlled: Story = {
 export const CustomClassName: Story = {
   args: {
     items,
-    tabBarClassName: "bg-gray-100 rounded-md px-2",
-    tabContentClassName: "border border-gray-200 rounded-md mt-2",
+    tabBarClassName: "gemini:bg-gray-100 gemini:rounded-md gemini:px-2",
+    tabContentClassName: "gemini:border gemini:border-gray-200 gemini:rounded-md gemini:mt-2",
   },
 };

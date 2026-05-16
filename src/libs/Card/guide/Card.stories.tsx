@@ -41,7 +41,7 @@ export const Rounded: Story = {
 
 export const ShadowVariants: Story = {
   render: () => (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="gemini:grid gemini:grid-cols-3 gemini:gap-6">
       <Card>none</Card>
       <Card shadow="sm">sm</Card>
       <Card shadow="md">md</Card>
@@ -54,7 +54,7 @@ export const ShadowVariants: Story = {
 
 export const BorderVariants: Story = {
   render: () => (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="gemini:grid gemini:grid-cols-3 gemini:gap-6">
       <Card border="sm">sm</Card>
       <Card border="md">md</Card>
       <Card border="lg">lg</Card>
@@ -71,8 +71,8 @@ export const Combined: Story = {
     rounded: true,
     children: (
       <div>
-        <h3 className="text-lg font-semibold mb-2">完整效果卡片</h3>
-        <p className="text-gray-600">
+        <h3 className="gemini:text-lg gemini:font-semibold gemini:mb-2">完整效果卡片</h3>
+        <p className="gemini:text-gray-600">
           包含阴影、边框和圆角
         </p>
       </div>
@@ -84,7 +84,7 @@ export const CustomStyle: Story = {
   args: {
     shadow: 'lg',
     rounded: true,
-    className: 'hover:shadow-xl transition-shadow',
+    className: 'gemini:hover:shadow-xl gemini:transition-shadow',
     children: '自定义样式的卡片',
   },
 };

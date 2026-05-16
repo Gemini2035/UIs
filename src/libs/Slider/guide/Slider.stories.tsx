@@ -3,19 +3,19 @@ import { useRef } from 'react';
 import { Slider, type SliderRef } from '@/libs';
 
 const mockItems = [
-  <div key="1" className="h-32 bg-blue-500 flex items-center justify-center text-white">
+  <div key="1" className="gemini:h-32 gemini:bg-blue-500 gemini:flex gemini:items-center gemini:justify-center gemini:text-white">
     Item 1
   </div>,
-  <div key="2" className="h-32 bg-green-500 flex items-center justify-center text-white">
+  <div key="2" className="gemini:h-32 gemini:bg-green-500 gemini:flex gemini:items-center gemini:justify-center gemini:text-white">
     Item 2
   </div>,
-  <div key="3" className="h-32 bg-red-500 flex items-center justify-center text-white">
+  <div key="3" className="gemini:h-32 gemini:bg-red-500 gemini:flex gemini:items-center gemini:justify-center gemini:text-white">
     Item 3
   </div>,
-  <div key="4" className="h-32 bg-yellow-500 flex items-center justify-center text-white">
+  <div key="4" className="gemini:h-32 gemini:bg-yellow-500 gemini:flex gemini:items-center gemini:justify-center gemini:text-white">
     Item 4
   </div>,
-  <div key="5" className="h-32 bg-purple-500 flex items-center justify-center text-white">
+  <div key="5" className="gemini:h-32 gemini:bg-purple-500 gemini:flex gemini:items-center gemini:justify-center gemini:text-white">
     Item 5
   </div>,
 ];
@@ -157,7 +157,7 @@ export const ControlledByRef: Story = {
       const ref = useRef<SliderRef>(null);
 
       return (
-        <div className="w-[500px]">
+        <div className="gemini:w-[500px]">
           <Slider
             ref={ref}
             items={mockItems}
@@ -166,21 +166,21 @@ export const ControlledByRef: Story = {
             showNavigation
           />
 
-          <div className="mt-4 flex gap-2 justify-center">
+          <div className="gemini:mt-4 gemini:flex gemini:gap-2 gemini:justify-center">
             <button
-              className="px-3 py-1 border rounded"
+              className="gemini:px-3 gemini:py-1 gemini:border gemini:rounded"
               onClick={() => ref.current?.slidePrev()}
             >
               上一页
             </button>
             <button
-              className="px-3 py-1 border rounded"
+              className="gemini:px-3 gemini:py-1 gemini:border gemini:rounded"
               onClick={() => ref.current?.slideNext()}
             >
               下一页
             </button>
             <button
-              className="px-3 py-1 border rounded"
+              className="gemini:px-3 gemini:py-1 gemini:border gemini:rounded"
               onClick={() => ref.current?.slideTo(0)}
             >
               第一页

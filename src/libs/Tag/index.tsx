@@ -70,12 +70,12 @@ const Tag: FC<TagProps> = ({
       className={getTagStyles(color, size, closable, bordered, className)}
       style={style}
     >
-      {icon && <span className="mr-1">{icon}</span>}
+      {icon && <span className="gemini:mr-1">{icon}</span>}
       <span>{children}</span>
       {closable && (
         <span
           onClick={handleClose}
-          className="ml-1 cursor-pointer"
+          className="gemini:ml-1 gemini:cursor-pointer"
           role="button"
           tabIndex={0}
           onKeyDown={handleKeyDown}

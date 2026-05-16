@@ -7,7 +7,7 @@ export const getSliderStyles = (
   className?: string
 ) => {
   return cn(
-    'relative w-full overflow-hidden',
+    'gemini:relative gemini:w-full gemini:overflow-hidden',
     className
   )
 }
@@ -20,7 +20,7 @@ export const getSliderTrackStyles = (
 ) => {
   // 暂时不使用 gap 参数，但保留接口兼容性
   return cn(
-    'flex transition-transform duration-300 ease-in-out',
+    'gemini:flex gemini:transition-transform gemini:duration-300 gemini:ease-in-out',
     className
   )
 }
@@ -32,7 +32,7 @@ export const getSliderItemStyles = (
   className?: string
 ) => {
   return cn(
-    'flex-shrink-0',
+    'gemini:flex-shrink-0',
     className
   )
 }
@@ -47,34 +47,34 @@ export const getNavigationButtonStyles = (
   className?: string
 ) => {
   const baseStyles = cn(
-    'absolute top-1/2 -translate-y-1/2 z-10',
-    'w-10 h-10 rounded-full',
-    'flex items-center justify-center',
-    'transition-all duration-200',
-    'focus:outline-none focus:ring-2 focus:ring-offset-2',
-    disabled && 'hidden', // 禁用时直接隐藏
-    !disabled && 'cursor-pointer hover:scale-110 active:scale-95' // 启用时显示pointer光标
+    'gemini:absolute gemini:top-1/2 gemini:-translate-y-1/2 gemini:z-10',
+    'gemini:w-10 gemini:h-10 gemini:rounded-full',
+    'gemini:flex gemini:items-center gemini:justify-center',
+    'gemini:transition-all gemini:duration-200',
+    'gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-offset-2',
+    disabled && 'gemini:hidden', // 禁用时直接隐藏
+    !disabled && 'gemini:cursor-pointer gemini:hover:scale-110 gemini:active:scale-95' // 启用时显示pointer光标
   )
 
   const positionStyles = direction === 'left' 
-    ? 'left-4' 
-    : 'right-4'
+    ? 'gemini:left-4' 
+    : 'gemini:right-4'
 
   const variantStyles = {
     default: cn(
-      'bg-white text-gray-800 shadow-lg',
-      'hover:bg-gray-50',
-      'focus:ring-gray-300'
+      'gemini:bg-white gemini:text-gray-800 gemini:shadow-lg',
+      'gemini:hover:bg-gray-50',
+      'gemini:focus:ring-gray-300'
     ),
     outline: cn(
-      'bg-transparent border-2 border-white text-white',
-      'hover:bg-white hover:text-gray-800',
-      'focus:ring-white'
+      'gemini:bg-transparent gemini:border-2 gemini:border-white gemini:text-white',
+      'gemini:hover:bg-white gemini:hover:text-gray-800',
+      'gemini:focus:ring-white'
     ),
     ghost: cn(
-      'bg-transparent text-white',
-      'hover:bg-white/20',
-      'focus:ring-white'
+      'gemini:bg-transparent gemini:text-white',
+      'gemini:hover:bg-white/20',
+      'gemini:focus:ring-white'
     )
   }
 
@@ -95,28 +95,28 @@ export const getIndicatorStyles = (
   className?: string
 ) => {
   const baseStyles = cn(
-    'transition-all duration-200 cursor-pointer',
-    'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300'
+    'gemini:transition-all gemini:duration-200 gemini:cursor-pointer',
+    'gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-offset-2 gemini:focus:ring-gray-300'
   )
 
   const variantStyles = {
     dot: cn(
-      'w-2 h-2 rounded-full',
+      'gemini:w-2 gemini:h-2 gemini:rounded-full',
       active 
-        ? 'bg-white scale-125' 
-        : 'bg-white/50 hover:bg-white/75'
+        ? 'gemini:bg-white gemini:scale-125' 
+        : 'gemini:bg-white/50 gemini:hover:bg-white/75'
     ),
     number: cn(
-      'w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium',
+      'gemini:w-8 gemini:h-8 gemini:rounded-full gemini:flex gemini:items-center gemini:justify-center gemini:text-sm gemini:font-medium',
       active
-        ? 'bg-white text-gray-800'
-        : 'bg-white/50 text-white hover:bg-white/75'
+        ? 'gemini:bg-white gemini:text-gray-800'
+        : 'gemini:bg-white/50 gemini:text-white gemini:hover:bg-white/75'
     ),
     line: cn(
-      'h-1 rounded-full',
+      'gemini:h-1 gemini:rounded-full',
       active
-        ? 'bg-white'
-        : 'bg-white/50 hover:bg-white/75'
+        ? 'gemini:bg-white'
+        : 'gemini:bg-white/50 gemini:hover:bg-white/75'
     )
   }
 
@@ -135,8 +135,8 @@ export const getIndicatorContainerStyles = (
   className?: string
 ) => {
   return cn(
-    'flex items-center justify-center gap-2 mt-4',
-    variant === 'line' && 'w-full',
+    'gemini:flex gemini:items-center gemini:justify-center gemini:gap-2 gemini:mt-4',
+    variant === 'line' && 'gemini:w-full',
     className
   )
 }

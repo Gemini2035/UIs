@@ -44,7 +44,7 @@ export const Horizontal: Story = {
 
 export const Vertical: Story = {
   render: () => (
-    <div className="flex h-24 items-center gap-6">
+    <div className="gemini:flex gemini:h-24 gemini:items-center gemini:gap-6">
       <span>左</span>
       <Divider orientation="vertical" />
       <span>右</span>
@@ -54,7 +54,7 @@ export const Vertical: Story = {
 
 export const ThicknessVariants: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className="gemini:space-y-4">
       <Divider thickness="thin" />
       <Divider thickness="medium" />
       <Divider thickness="thick" />
@@ -77,9 +77,9 @@ export const Dashed: Story = {
 
 export const CustomColor: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className="gemini:space-y-4">
       <Divider color="#ef4444" />
-      <Divider color="bg-blue-500" />
+      <Divider color="gemini:bg-blue-500" />
       <Divider color="var(--primary-color)" />
     </div>
   ),
@@ -87,7 +87,7 @@ export const CustomColor: Story = {
 
 export const LengthControl: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className="gemini:space-y-4">
       <Divider length={50} />
       <Divider length={80} />
     </div>

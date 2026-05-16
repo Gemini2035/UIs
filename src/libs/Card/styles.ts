@@ -6,11 +6,11 @@ import type { CardShadow, CardBorder } from './types'
 export const getShadowStyles = (shadow: CardShadow): string => {
   const shadows = {
     none: '',
-    sm: 'shadow-sm',
-    md: 'shadow-md',
-    lg: 'shadow-lg',
-    xl: 'shadow-xl',
-    '2xl': 'shadow-2xl',
+    sm: 'gemini:shadow-sm',
+    md: 'gemini:shadow-md',
+    lg: 'gemini:shadow-lg',
+    xl: 'gemini:shadow-xl',
+    '2xl': 'gemini:shadow-2xl',
   }
   return shadows[shadow] || shadows.none
 }
@@ -21,11 +21,11 @@ export const getShadowStyles = (shadow: CardShadow): string => {
 export const getBorderStyles = (border: CardBorder): string => {
   const borders = {
     none: '',
-    sm: 'border border-gray-200',
-    md: 'border-2 border-gray-200',
-    lg: 'border-4 border-gray-200',
-    xl: 'border-8 border-gray-200',
-    '2xl': 'border-16 border-gray-200',
+    sm: 'gemini:border gemini:border-gray-200',
+    md: 'gemini:border-2 gemini:border-gray-200',
+    lg: 'gemini:border-4 gemini:border-gray-200',
+    xl: 'gemini:border-8 gemini:border-gray-200',
+    '2xl': 'gemini:border-16 gemini:border-gray-200',
   }
   return borders[border] || borders.none
 }
@@ -34,14 +34,14 @@ export const getBorderStyles = (border: CardBorder): string => {
  * 获取卡片圆角样式
  */
 export const getRoundedStyles = (rounded: boolean): string => {
-  return rounded ? 'rounded-lg' : 'rounded-none'
+  return rounded ? 'gemini:rounded-lg' : 'gemini:rounded-none'
 }
 
 /**
  * 获取卡片hover效果样式
  */
 export const getHoverStyles = (disabledHover: boolean = false): string => {
-  return disabledHover ? '' : 'hover:shadow-xl hover:scale-101 hover:-translate-y-1 hover:translate-x-1 origin-bottom-left'
+  return disabledHover ? '' : 'gemini:hover:shadow-xl gemini:hover:scale-101 gemini:hover:-translate-y-1 gemini:hover:translate-x-1 gemini:origin-bottom-left'
 }
 
 /**
@@ -54,7 +54,7 @@ export const getCardStyles = (
   disabledHover: boolean = false,
   customClassName?: string
 ): string => {
-  const baseStyles = 'block p-4 bg-white transition-all duration-300 ease-in-out cursor-pointer'
+  const baseStyles = 'gemini:block gemini:p-4 gemini:bg-white gemini:transition-all gemini:duration-300 gemini:ease-in-out gemini:cursor-pointer'
   const shadowStyles = getShadowStyles(shadow)
   const borderStyles = getBorderStyles(border)
   const roundedStyles = getRoundedStyles(rounded)
@@ -62,7 +62,7 @@ export const getCardStyles = (
   
   // 检查是否已经设置了宽度，如果没有则添加默认宽度
   const hasWidthClass = customClassName && /\bw-\w+/.test(customClassName)
-  const defaultWidth = hasWidthClass ? '' : 'w-full'
+  const defaultWidth = hasWidthClass ? '' : 'gemini:w-full'
   
   return [
     baseStyles,

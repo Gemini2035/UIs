@@ -57,7 +57,7 @@ export const Basic: Story = {
 // =======================
 export const Triggers: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div className="gemini:flex gemini:gap-4">
       <Tooltip title="鼠标悬停" trigger="hover">
         <Button>Hover</Button>
       </Tooltip>
@@ -65,7 +65,7 @@ export const Triggers: Story = {
         <Button>Click</Button>
       </Tooltip>
       <Tooltip title="聚焦触发" trigger="focus">
-        <input className="border p-1" placeholder="Focus me" />
+        <input className="gemini:border gemini:p-1" placeholder="Focus me" />
       </Tooltip>
       <Tooltip title="右键触发" trigger="contextMenu">
         <Button>右键</Button>
@@ -79,7 +79,7 @@ export const Triggers: Story = {
 // =======================
 export const Placements: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="gemini:flex gemini:flex-wrap gemini:gap-4">
       <Tooltip title="上方" placement="top">
         <Button>top</Button>
       </Tooltip>
@@ -109,10 +109,10 @@ export const Interactive: Story = {
   render: () => (
     <Tooltip
       title={
-        <div className="p-2">
+        <div className="gemini:p-2">
           <p>可交互内容</p>
           <button
-            className="mt-1 px-2 py-1 bg-blue-500 text-white rounded"
+            className="gemini:mt-1 gemini:px-2 gemini:py-1 gemini:bg-blue-500 gemini:text-white gemini:rounded"
             onClick={() => alert('点击了')}
           >
             点击我
@@ -131,7 +131,7 @@ export const Interactive: Story = {
 // =======================
 export const OffsetAndFollow: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div className="gemini:flex gemini:gap-4">
       <Tooltip title="自定义偏移" offset={[10, 20]}>
         <Button>偏移</Button>
       </Tooltip>
@@ -164,7 +164,7 @@ export const Controlled: Story = {
 // =======================
 export const CustomContainer: Story = {
   render: () => (
-    <div id="custom-container" className="relative w-full h-64 border p-4">
+    <div id="custom-container" className="gemini:relative gemini:w-full gemini:h-64 gemini:border gemini:p-4">
       <Tooltip
         title="自定义容器"
         getRenderContainer={() =>

@@ -13,7 +13,7 @@ import { CloseIcon } from "@/icons";
 /**
  * 默认关闭图标组件
  */
-const DefaultCloseIcon = () => <CloseIcon className="w-5 h-5" />;
+const DefaultCloseIcon = () => <CloseIcon className="gemini:w-5 gemini:h-5" />;
 
 /**
  * Drawer 组件 - 仿照 Ant Design 的抽屉组件
@@ -150,13 +150,13 @@ export const Drawer = forwardRef<DrawerRef, DrawerProps>(
       const { style: htmlStyle } = document.documentElement;
 
       // 锁定滚动：固定 body，记录并维持当前位置
-      bodyStyle.position = "fixed";
+      bodyStyle.position = "gemini:fixed";
       bodyStyle.top = `-${scrollY}px`;
       bodyStyle.left = "0";
       bodyStyle.right = "0";
       bodyStyle.width = "100%";
-      bodyStyle.overflow = "hidden";
-      htmlStyle.overflow = "hidden";
+      bodyStyle.overflow = "gemini:hidden";
+      htmlStyle.overflow = "gemini:hidden";
       htmlStyle.overscrollBehavior = "none";
 
       // 防止页面其他容器滚动（触摸与滚轮）
@@ -226,24 +226,24 @@ export const Drawer = forwardRef<DrawerRef, DrawerProps>(
           {/* 头部 */}
           {(title || closable || extra) && (
             <div className={cn(getHeaderStyles(headerClassName))}>
-              <div className="flex items-center gap-4 flex-1">
+              <div className="gemini:flex gemini:items-center gemini:gap-4 gemini:flex-1">
                 {title && (
                   <h2
                     id="drawer-title"
-                    className="text-lg font-semibold text-gray-900 flex-1"
+                    className="gemini:text-lg gemini:font-semibold gemini:text-gray-900 gemini:flex-1"
                   >
                     {title}
                   </h2>
                 )}
                 {extra && (
-                  <div className="flex items-center gap-2">{extra}</div>
+                  <div className="gemini:flex gemini:items-center gemini:gap-2">{extra}</div>
                 )}
               </div>
               {closable && (
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                  className="gemini:p-2 gemini:rounded-lg gemini:text-gray-500 gemini:hover:text-gray-700 gemini:hover:bg-gray-100 gemini:transition-all gemini:duration-200 gemini:focus:outline-none gemini:focus:ring-2 gemini:focus:ring-gray-500 gemini:focus:ring-offset-2"
                   aria-label="关闭抽屉"
                 >
                   {closeIcon || <DefaultCloseIcon />}
@@ -256,7 +256,7 @@ export const Drawer = forwardRef<DrawerRef, DrawerProps>(
           <div
             className={cn(
               getBodyStyles(bodyClassName),
-              "min-h-0 flex-1 overflow-y-auto"
+              "gemini:min-h-0 gemini:flex-1 gemini:overflow-y-auto"
             )}
             style={{ overscrollBehavior: "contain" }}
             onWheel={(e) => {
