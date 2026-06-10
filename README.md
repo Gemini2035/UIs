@@ -10,50 +10,39 @@ pnpm dev
 
 ## npm 发版流程
 
-1. 确认本地依赖和构建正常。
+1. 首次发版前登录 npm。
 
 ```bash
-pnpm install
-pnpm build
+pnpm login:npm
 ```
 
-2. 更新 `package.json` 中的版本号。
+2. 发布默认 patch 版本。
 
 ```bash
-pnpm version patch
+pnpm release
 ```
 
-也可以按发版类型使用：
+默认会自动执行：
+
+- `pnpm version patch`
+- `pnpm build`
+- `npm pack --dry-run`
+- `npm publish`
+- `git push`
+- `git push --tags`
+
+3. 自定义版本号。
 
 ```bash
-pnpm version minor
-pnpm version major
+pnpm release 0.14.2
 ```
 
-3. 检查即将发布到 npm 的文件内容。
+4. 自定义版本号和版本提交信息。
 
 ```bash
-npm pack --dry-run
+pnpm release 0.14.2 "release: v%s"
 ```
+
+`%s` 会被替换成版本号，例如 `release: v0.14.2`。
 
 当前包只发布 `dist` 目录，发布前请确认 `dist/index.js`、`dist/index.d.ts`、`dist/style.css` 都存在。
-
-4. 登录 npm。
-
-```bash
-npm login
-npm whoami
-```
-
-5. 发布。
-
-```bash
-npm publish
-```
-
-6. 推送版本提交和 tag。
-
-```bash
-git push
-git push --tags
-```
