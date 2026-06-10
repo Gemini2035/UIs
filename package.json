@@ -25,6 +25,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build-storybook": "pnpm build && storybook build -o storybook-static",
+    "login:npm": "npm login --auth-type=legacy --registry=https://registry.npmjs.org/",
+    "publish:npm": "pnpm build && npm pack --dry-run && npm publish && git push && git push --tags",
+    "release": "pnpm login:npm && pnpm version patch && pnpm publish:npm",
     "prepare": "husky install"
   },
   "dependencies": {
