@@ -24,12 +24,14 @@ pnpm release
 
 默认会自动执行：
 
-- `pnpm version patch`
+- `pnpm version patch --no-git-tag-version`
+- `git commit`
+- `git tag -a <标签> -m <文本>`
 - `pnpm build`
 - `npm pack --dry-run`
 - `npm publish`
 - `git push`
-- `git push --tags`
+- `git push origin <标签>`
 
 3. 自定义版本号。
 
@@ -44,5 +46,17 @@ pnpm release 0.14.2 "release: v%s"
 ```
 
 `%s` 会被替换成版本号，例如 `release: v0.14.2`。
+
+5. 自定义版本号、版本提交信息、tag 和 tag 文本。
+
+```bash
+pnpm release 0.14.2 "release: v%s" "v0.14.2" "Gemini UIs v%s"
+```
+
+上面的 tag 命令等价于：
+
+```bash
+git tag -a v0.14.2 -m "Gemini UIs v0.14.2"
+```
 
 当前包只发布 `dist` 目录，发布前请确认 `dist/index.js`、`dist/index.d.ts`、`dist/style.css` 都存在。
