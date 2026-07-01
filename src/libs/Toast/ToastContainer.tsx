@@ -20,9 +20,9 @@ const baseTheme: Required<Pick<ToastTheme, 'background' | 'border' | 'mutedText'
 }
 
 const positionClassMap: Record<ToastPosition, string> = {
-  'top-left': 'gemini:top-4 gemini:left-4 gemini:items-start',
-  'top-center': 'gemini:top-4 gemini:left-1/2 gemini:-translate-x-1/2 gemini:items-stretch',
-  'top-right': 'gemini:top-4 gemini:right-4 gemini:items-end',
+  'top-left': 'gemini:left-4 gemini:items-start',
+  'top-center': 'gemini:left-1/2 gemini:-translate-x-1/2 gemini:items-stretch',
+  'top-right': 'gemini:right-4 gemini:items-end',
   'bottom-left': 'gemini:bottom-4 gemini:left-4 gemini:items-start',
   'bottom-center': 'gemini:bottom-4 gemini:left-1/2 gemini:-translate-x-1/2 gemini:items-stretch',
   'bottom-right': 'gemini:bottom-4 gemini:right-4 gemini:items-end',
@@ -92,12 +92,14 @@ const ToastContainer: FC<ToastContainerProps> = ({
   maxCount = DEFAULT_MAX_COUNT,
   position = DEFAULT_POSITION,
   theme,
+  classNames,
 }) => {
   const visibleMaxCount = Math.max(1, maxCount)
   const [toasts, setToasts] = useState<ToastInstance[]>([])
 
   const resolvedTheme = {
     ...baseTheme,
+    topOffset: '1rem',
     ...theme,
   }
 
@@ -163,7 +165,8 @@ const ToastContainer: FC<ToastContainerProps> = ({
         className={cn(
           'gemini:pointer-events-auto gemini:flex gemini:w-full gemini:items-start gemini:gap-3',
           'gemini:rounded-[var(--site-radius-control)] gemini:border gemini:px-4 gemini:py-3',
-          'gemini:text-sm gemini:leading-6 gemini:shadow-sm'
+          'gemini:text-sm gemini:leading-6 gemini:shadow-sm',
+          classNames?.toast
         )}
         role="status"
         style={{
@@ -172,16 +175,16 @@ const ToastContainer: FC<ToastContainerProps> = ({
           color: text,
         }}
       >
-        <div className="gemini:mt-0.5 gemini:shrink-0" style={{ color: text }}>
+        <div className={cn('gemini:mt-0.5 gemini:shrink-0', classNames?.icon)} style={{ color: text }}>
           {getIcon(toast.options.type)}
         </div>
 
-        <div className="gemini:flex-1 gemini:break-words">{toast.options.message}</div>
+        <div className={cn('gemini:flex-1 gemini:break-words', classNames?.content)}>{toast.options.message}</div>
 
         {toast.options.closable && (
           <button
             aria-label="关闭"
-            className="gemini:shrink-0 gemini:transition-colors"
+            className={cn('gemini:shrink-0 gemini:transition-colors', classNames?.closeButton)}
             onClick={() => removeToast(toast.id)}
             style={{ color: resolvedTheme.mutedText }}
             type="button"
@@ -206,18 +209,21 @@ const ToastContainer: FC<ToastContainerProps> = ({
   }
 
   return (
-    <div className="gemini:pointer-events-none gemini:fixed gemini:inset-0 gemini:z-9999">
+    <div className={cn('gemini:pointer-events-none gemini:fixed gemini:inset-0 gemini:z-9999', classNames?.viewport)}>
       {positionOrder.map((stackPosition) => {
         const stackToasts = toastsByPosition[stackPosition]
         if (stackToasts.length === 0) return null
+        const isTopPosition = stackPosition.startsWith('top')
 
         return (
           <div
             className={cn(
               'gemini:absolute gemini:flex gemini:w-[calc(100vw-2rem)] gemini:max-w-[32rem] gemini:flex-col gemini:gap-2',
-              positionClassMap[stackPosition]
+              positionClassMap[stackPosition],
+              classNames?.stack
             )}
             key={stackPosition}
+            style={isTopPosition ? { top: resolvedTheme.topOffset } : undefined}
           >
             {stackToasts.map(renderToast)}
           </div>

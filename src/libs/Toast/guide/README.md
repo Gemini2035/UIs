@@ -1,6 +1,6 @@
 # Toast 通知组件
 
-轻量 Toast 容器，默认只提供最基础的结构和样式，主题颜色、默认位置和最大同时显示数量都可以由使用方传入。
+轻量 Toast 容器，默认只提供最基础的结构和样式。主题颜色、顶部偏移、默认位置和最大同时显示数量都可以由使用方传入。
 
 ## 使用方法
 
@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
             border: "var(--site-border)",
             text: "var(--site-text)",
             mutedText: "var(--site-text-tertiary)",
+            topOffset: "calc(var(--site-nav-height, 64px) + 12px)",
             success: {
               background: "color-mix(in srgb, var(--site-action) 6%, var(--site-canvas))",
               text: "var(--site-action)",
@@ -30,6 +31,10 @@ export default function RootLayout({ children }) {
               background: "color-mix(in srgb, #d93025 6%, var(--site-canvas))",
               text: "#b42318",
             },
+          }}
+          classNames={{
+            stack: "gemini:gap-0",
+            toast: "gemini:rounded-full",
           }}
         />
       </body>
@@ -91,7 +96,7 @@ function MyComponent() {
 />
 ```
 
-- `theme`: 控制容器基础色和不同状态的背景色、文字色
+- `theme`: 控制容器基础色、顶部偏移和不同状态的背景色、文字色
 - `position`: 默认显示位置
 - `maxCount`: 最大同时显示数量，默认 `3`
 
@@ -152,10 +157,20 @@ interface ToastTheme {
   border?: string;
   mutedText?: string;
   text?: string;
+  topOffset?: string;
   success?: ToastStateTheme;
   error?: ToastStateTheme;
   warning?: ToastStateTheme;
   info?: ToastStateTheme;
+}
+
+interface ToastClassNames {
+  viewport?: string;
+  stack?: string;
+  toast?: string;
+  icon?: string;
+  content?: string;
+  closeButton?: string;
 }
 
 interface ToastOptions {

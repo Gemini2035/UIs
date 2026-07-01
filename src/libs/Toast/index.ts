@@ -106,6 +106,7 @@ const toast = {
 export { ToastContainer }
 export type {
   ToastContainerProps,
+  ToastClassNames,
   ToastInstance,
   ToastMethodOptions,
   ToastOptions,

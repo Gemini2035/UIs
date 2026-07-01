@@ -22,6 +22,8 @@ export interface ToastTheme {
   border?: string
   mutedText?: string
   text?: string
+  /** 顶部位置距离视口顶部的偏移量 */
+  topOffset?: string
   success?: ToastStateTheme
   error?: ToastStateTheme
   warning?: ToastStateTheme
@@ -61,9 +63,20 @@ export interface ToastContainerProps {
   position?: ToastPosition
   /** 最大同时显示数量 */
   maxCount?: number
+  /** 样式类名配置 */
+  classNames?: ToastClassNames
 }
 
 export interface ToastMethodOptions {
   /** 显示位置 */
   position?: ToastPosition
+}
+
+export interface ToastClassNames {
+  viewport?: string
+  stack?: string
+  toast?: string
+  icon?: string
+  content?: string
+  closeButton?: string
 }

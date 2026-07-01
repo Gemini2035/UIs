@@ -59,6 +59,7 @@ export const ThemedAndPositioned: Story = {
           border: 'var(--site-border)',
           mutedText: 'var(--site-text-tertiary)',
           text: 'var(--site-text)',
+          topOffset: 'calc(var(--site-nav-height, 64px) + 12px)',
           success: {
             background: 'color-mix(in srgb, var(--site-action) 6%, var(--site-canvas))',
             text: 'var(--site-action)',
@@ -75,6 +76,10 @@ export const ThemedAndPositioned: Story = {
             background: 'color-mix(in srgb, var(--site-action) 6%, var(--site-canvas))',
             text: 'var(--site-action)',
           },
+        }}
+        classNames={{
+          stack: 'gemini:gap-0',
+          toast: 'gemini:rounded-full',
         }}
       />
       <button
