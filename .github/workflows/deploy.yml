@@ -1,9 +1,6 @@
-name: Build and Deploy Storybook to Docker Server
+name: StoryBook Depoly
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
