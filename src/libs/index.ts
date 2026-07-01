@@ -11,5 +11,5 @@ export { default as Slider, type SliderProps, type SliderRef, type NavigationDir
 export { default as Tab, type TabProps, type TabItem } from './Tab'
 export { default as Tag, type TagProps, type TagColor, type TagSize } from './Tag'
 export { default as Timeline, type TimelineProps, type TimelineRef, type TimelineMode, type TimelineSize, type TimelineColor, type TimelineStatus, type TimelineItemProps, type TimelineItemRef } from './Timeline'
-export { default as toast, ToastContainer, type ToastOptions, type ToastType, type ToastInstance } from './Toast'
+export { default as toast, ToastContainer, type ToastContainerProps, type ToastMethodOptions, type ToastOptions, type ToastPosition, type ToastStateTheme, type ToastTheme, type ToastType, type ToastInstance } from './Toast'
 export { default as Tooltip, type TooltipProps, type TooltipRef, type TooltipTrigger, type TooltipPlacement, type TooltipTheme, type TooltipState, type TooltipAnimation } from './Tooltip'

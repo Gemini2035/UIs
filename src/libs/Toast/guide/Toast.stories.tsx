@@ -48,26 +48,50 @@ export const Basic: Story = {
   ),
 };
 
-// =======================
-// 自定义配置
-// =======================
-export const CustomOptions: Story = {
+export const ThemedAndPositioned: Story = {
   render: () => (
-    <div className="gemini:p-4">
-      <ToastContainer />
+    <div className="gemini:p-4 gemini:min-h-[320px]">
+      <ToastContainer
+        maxCount={2}
+        position="top-center"
+        theme={{
+          background: 'var(--site-canvas)',
+          border: 'var(--site-border)',
+          mutedText: 'var(--site-text-tertiary)',
+          text: 'var(--site-text)',
+          success: {
+            background: 'color-mix(in srgb, var(--site-action) 6%, var(--site-canvas))',
+            text: 'var(--site-action)',
+          },
+          error: {
+            background: 'color-mix(in srgb, #d93025 6%, var(--site-canvas))',
+            text: '#b42318',
+          },
+          warning: {
+            background: 'color-mix(in srgb, #f59e0b 8%, var(--site-canvas))',
+            text: '#92400e',
+          },
+          info: {
+            background: 'color-mix(in srgb, var(--site-action) 6%, var(--site-canvas))',
+            text: 'var(--site-action)',
+          },
+        }}
+      />
       <button
         className="gemini:px-4 gemini:py-2 gemini:bg-purple-500 gemini:text-white gemini:rounded"
         onClick={() =>
-          toast.show({
-            message: '自定义提示',
-            type: 'success',
-            duration: 5000,
-            closable: true,
-            onClose: () => console.log('Toast 已关闭'),
-          })
+          toast.success('顶部居中，使用容器默认位置', 3000)
         }
       >
-        自定义 Toast
+        默认位置
+      </button>
+      <button
+        className="gemini:px-4 gemini:py-2 gemini:bg-slate-800 gemini:text-white gemini:rounded"
+        onClick={() =>
+          toast.info('这个 Toast 会出现在右下角', 3000, 'bottom-right')
+        }
+      >
+        覆盖位置
       </button>
     </div>
   ),

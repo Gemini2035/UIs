@@ -1,22 +1,16 @@
 /**
  * Toast 通知组件
- * 类似 antd 的 message 组件
  */
 
-import type { ToastOptions, ToastInstance } from './types'
+import type { ToastInstance, ToastMethodOptions, ToastOptions, ToastPosition } from './types'
+import { default as ToastContainer } from './ToastContainer'
 
 let toastId = 0
 
-/**
- * 生成唯一ID
- */
 const generateId = (): string => {
   return `toast-${Date.now()}-${++toastId}`
 }
 
-/**
- * 触发Toast显示
- */
 const showToast = (options: ToastOptions) => {
   if (typeof window === 'undefined') return
 
@@ -28,56 +22,88 @@ const showToast = (options: ToastOptions) => {
       duration: options.duration ?? 3000,
       closable: options.closable ?? true,
       onClose: options.onClose || (() => {}),
+      position: options.position,
     },
     timestamp: Date.now(),
   }
 
-  const event = new CustomEvent('show-toast', { detail: toast })
-  window.dispatchEvent(event)
+  window.dispatchEvent(new CustomEvent('show-toast', { detail: toast }))
 }
 
-/**
- * Toast API
- */
+const buildQuickOptions = (
+  message: string,
+  duration?: number,
+  position?: ToastPosition,
+  extra?: ToastMethodOptions
+): ToastOptions => ({
+  message,
+  duration,
+  position: position ?? extra?.position,
+})
+
 const toast = {
-  /**
-   * 显示成功提示
-   */
-  success: (message: string, duration?: number) => {
-    showToast({ message, type: 'success', duration })
-  },
+  success: (message: string, duration?: number, positionOrOptions?: ToastPosition | ToastMethodOptions) => {
+    if (typeof positionOrOptions === 'string') {
+      showToast({
+        ...buildQuickOptions(message, duration, positionOrOptions),
+        type: 'success',
+      })
+      return
+    }
 
-  /**
-   * 显示错误提示
-   */
-  error: (message: string, duration?: number) => {
-    showToast({ message, type: 'error', duration })
+    showToast({
+      ...buildQuickOptions(message, duration, undefined, positionOrOptions),
+      type: 'success',
+    })
   },
+  error: (message: string, duration?: number, positionOrOptions?: ToastPosition | ToastMethodOptions) => {
+    if (typeof positionOrOptions === 'string') {
+      showToast({
+        ...buildQuickOptions(message, duration, positionOrOptions),
+        type: 'error',
+      })
+      return
+    }
 
-  /**
-   * 显示警告提示
-   */
-  warning: (message: string, duration?: number) => {
-    showToast({ message, type: 'warning', duration })
+    showToast({
+      ...buildQuickOptions(message, duration, undefined, positionOrOptions),
+      type: 'error',
+    })
   },
+  warning: (message: string, duration?: number, positionOrOptions?: ToastPosition | ToastMethodOptions) => {
+    if (typeof positionOrOptions === 'string') {
+      showToast({
+        ...buildQuickOptions(message, duration, positionOrOptions),
+        type: 'warning',
+      })
+      return
+    }
 
-  /**
-   * 显示信息提示
-   */
-  info: (message: string, duration?: number) => {
-    showToast({ message, type: 'info', duration })
+    showToast({
+      ...buildQuickOptions(message, duration, undefined, positionOrOptions),
+      type: 'warning',
+    })
   },
+  info: (message: string, duration?: number, positionOrOptions?: ToastPosition | ToastMethodOptions) => {
+    if (typeof positionOrOptions === 'string') {
+      showToast({
+        ...buildQuickOptions(message, duration, positionOrOptions),
+        type: 'info',
+      })
+      return
+    }
 
-  /**
-   * 自定义Toast
-   */
+    showToast({
+      ...buildQuickOptions(message, duration, undefined, positionOrOptions),
+      type: 'info',
+    })
+  },
   show: (options: ToastOptions) => {
     showToast(options)
   },
 }
 
-// 导出组件和类型
-export { default as ToastContainer } from './ToastContainer'
-export type { ToastOptions, ToastType, ToastInstance } from './types'
+export { ToastContainer }
+export type { ToastContainerProps, ToastInstance, ToastMethodOptions, ToastOptions, ToastPosition } from './types'
 
-export default toast;
+export default toast
