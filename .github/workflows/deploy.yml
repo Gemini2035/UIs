@@ -1,58 +1,54 @@
-name: Deploy Storybook to GitHub Pages
+name: Build and Deploy Storybook to Docker Server
 
 on:
   push:
     branches:
       - main
-  # 支持手动触发部署
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build Storybook
-        run: pnpm build-storybook
-
-      - name: Create .nojekyll file
-        run: touch storybook-static/.nojekyll
-
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: storybook-static
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
 
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Validate deployment secrets
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+
+          test -n "${DEPLOY_HOST}" || (echo "DEPLOY_HOST is not configured" >&2; exit 1)
+          test -n "${DEPLOY_USER}" || (echo "DEPLOY_USER is not configured" >&2; exit 1)
+          test -n "${DEPLOY_SSH_KEY}" || (echo "DEPLOY_SSH_KEY is not configured" >&2; exit 1)
+          test -n "${DEPLOY_PATH}" || (echo "DEPLOY_PATH is not configured" >&2; exit 1)
+
+      - name: Deploy on server over SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ env.DEPLOY_PORT }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script_stop: true
+          command_timeout: 30m
+          script: |
+            set -euo pipefail
+
+            cd "${{ secrets.DEPLOY_PATH }}"
+            git fetch origin main
+            git reset --hard origin/main
+            docker build -t ui-docs:latest .
+            docker rm -f ui-docs || true
+            docker run -d \
+              --name ui-docs \
+              --restart unless-stopped \
+              -p 127.0.0.1:8080:80 \
+              ui-docs:latest
