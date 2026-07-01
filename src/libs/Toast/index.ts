@@ -104,6 +104,15 @@ const toast = {
 }
 
 export { ToastContainer }
-export type { ToastContainerProps, ToastInstance, ToastMethodOptions, ToastOptions, ToastPosition } from './types'
+export type {
+  ToastContainerProps,
+  ToastInstance,
+  ToastMethodOptions,
+  ToastOptions,
+  ToastPosition,
+  ToastStateTheme,
+  ToastTheme,
+  ToastType,
+} from './types'
 
 export default toast
