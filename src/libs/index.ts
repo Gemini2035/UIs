@@ -5,6 +5,7 @@ export { default as Divider, type DividerProps, type DividerRef, type DividerOri
 export { default as Drawer, type DrawerProps, type DrawerRef, type DrawerPlacement, type DrawerSize } from './Drawer'
 export { default as EmptyState, EmptyStateIcon, type EmptyStateProps, type EmptyStateRef, type EmptyStateSize, type EmptyStateVariant, type EmptyStateIconType } from './EmptyState'
 export { default as Loading, type LoadingProps, type LoadingSize, type LoadingVariant } from './Loading'
+export { default as Modal, type ModalClassNames, type ModalProps, type ModalRef, type ModalSize } from './Modal'
 export { default as Pagination, type PaginationProps, type PaginationSize, type PaginationAlign, type PaginationItemProps, type PaginationJumpProps, type PaginationSizeChangerProps, type PaginationQuickJumperProps } from './Pagination'
 export { default as Progressing, type ProgressingProps, type ProgressingRef, type ProgressingSize, type ProgressingStatus, type ProgressingStrokeLinecap, type ProgressingSuccess, type ProgressingType } from './Progressing'
 export { default as Slider, type SliderProps, type SliderRef, type NavigationDirection, type NavigationVariant, type IndicatorVariant } from './Slider'
