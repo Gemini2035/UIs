@@ -163,16 +163,14 @@ const Modal = forwardRef<ModalRef, ModalProps>(
           role="dialog"
           {...props}
         >
-          {(title || closable) && (
+          {title && (
             <div className={cn(getModalHeaderStyles(classNames?.header))}>
-              {title && (
-                <h2
-                  className="gemini:flex-1 gemini:text-lg gemini:font-semibold gemini:text-gray-900"
-                  id={titleId}
-                >
-                  {title}
-                </h2>
-              )}
+              <h2
+                className="gemini:flex-1 gemini:text-lg gemini:font-semibold gemini:text-gray-900"
+                id={titleId}
+              >
+                {title}
+              </h2>
               {closable && (
                 <button
                   aria-label="关闭弹窗"
